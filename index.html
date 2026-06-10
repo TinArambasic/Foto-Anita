@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foto Anita — Valpovo, Hrvatska</title>
+  <meta name="description" content="Foto Anita — profesionalna fotografija u Valpovu. Portreti, vjenčanja, događaji i produkt fotografija." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Foto Anita — Valpovo, Hrvatska" />
+  <meta property="og:description" content="Profesionalna fotografija u Valpovu. Portreti, vjenčanja, događaji i produkt fotografija." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80" />
+  <meta property="og:locale" content="hr_HR" />
+
+  
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1800&q=80" /> <!-- ove sve slike jos moram mijenjat sa vlastitima-->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'wb':    '#0C0A09',
+            'wd':    '#171412',
+            'wc':    '#221E1A',
+            'gold':  '#C9A96E',
+            'goldl': '#DEC99A',
+            'cream': '#F5EFE6',
+            'cmut':  '#A89888',
+            'wbor':  '#2E2A25',
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', 'cursive'],
+            serif:  ['"Cormorant Infant"', 'serif'],
+            sans:   ['Jost', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #0C0A09;
+      color: #F5EFE6;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0C0A09; }
+    ::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 3px; }
+
+    
+    ::selection { background: rgba(201,169,110,.35); color: #F5EFE6; }
+
+    /* navigacija */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .4s ease, padding .4s ease, backdrop-filter .4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(12,10,9,.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(201,169,110,.15);
+    }
+
+    .nav-link {
+      position: relative;
+      font-family: 'Jost', sans-serif;
+      font-size: .75rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #A89888;
+      text-decoration: none;
+      transition: color .25s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: #C9A96E;
+      transition: width .3s ease;
+    }
+    .nav-link:hover { color: #DEC99A; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* navigacija za responzivnost */
+    #nav-toggle {
+      display: none;
+      background: transparent; border: none; cursor: pointer;
+      width: 40px; height: 40px;
+      flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+      padding: 0;
+    }
+    #nav-toggle span {
+      display: block; width: 22px; height: 1px;
+      background: #C9A96E;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    #nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #nav-toggle.open span:nth-child(2) { opacity: 0; }
+    #nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    #mobile-menu {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 49;
+      background: rgba(12,10,9,.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201,169,110,.15);
+      padding: 6rem 2rem 2.5rem;
+      display: flex; flex-direction: column; gap: 1.6rem;
+      transform: translateY(-100%);
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    #mobile-menu.open { transform: translateY(0); }
+    #mobile-menu a {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.5rem; font-weight: 300;
+      color: #F5EFE6; text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .25s;
+    }
+    #mobile-menu a:hover { color: #C9A96E; }
+
+    /* herpo */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    #hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1800&q=80');
+      background-size: cover; background-position: center;
+      transform: scale(1);
+      will-change: transform;
+    }
+    /* uoom in hero slike*/
+    #hero-bg.loaded {
+      animation: heroZoom 18s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.12); }
+    }
+    #hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg,
+        rgba(12,10,9,.72) 0%,
+        rgba(12,10,9,.45) 50%,
+        rgba(12,10,9,.78) 100%);
+    }
+
+    .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 1.5rem; }
+
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: #C9A96E;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp .8s .3s forwards;
+    }
+    .hero-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4.5rem, 12vw, 9rem);
+      line-height: 1.05;
+      color: #F5EFE6;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp .9s .55s forwards;
+    }
+    .hero-subtitle {
+      font-family: 'Cormorant Infant', serif;
+      font-size: clamp(1rem, 2.2vw, 1.4rem);
+      font-weight: 300;
+      letter-spacing: .12em;
+      color: #C4B5A5;
+      margin-top: .8rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp .8s .8s forwards;
+    }
+    .hero-divider {
+      width: 48px; height: 1px;
+      background: #C9A96E;
+      margin: 2rem auto;
+      opacity: 0;
+      animation: fadeIn .6s 1.05s forwards;
+    }
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #0C0A09;
+      background: #C9A96E;
+      padding: .85rem 2.4rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .25s, color .25s, transform .2s;
+      opacity: 0;
+      animation: fadeIn .6s 1.2s forwards;
+    }
+    .hero-cta:hover {
+      background: #DEC99A;
+      transform: translateY(-2px);
+    }
+
+    /* sscrollwheel */
+    .scroll-indicator {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      opacity: 0; animation: fadeIn 1s 1.6s forwards;
+      cursor: pointer;
+    }
+    .scroll-indicator span {
+      font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: #A89888;
+    }
+    .scroll-mouse {
+      width: 22px; height: 34px;
+      border: 1px solid rgba(201,169,110,.45);
+      border-radius: 11px;
+      position: relative;
+    }
+    .scroll-dot {
+      width: 4px; height: 7px;
+      background: #C9A96E;
+      border-radius: 2px;
+      position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+      animation: scrollDot 1.8s ease infinite;
+    }
+
+    /*  Ssekcija  */
+    section { padding: 7rem 2rem; }
+
+    .section-eyebrow {
+      font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
+      color: #C9A96E; margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Infant', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: #F5EFE6;
+      margin-bottom: 1.6rem;
+    }
+    .section-title em {
+      font-style: italic; color: #C9A96E;
+    }
+    .gold-rule {
+      width: 48px; height: 1px; background: #C9A96E; margin-bottom: 1.8rem;
+    }
+    .body-text {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #C4B5A5;
+    }
+
+    /*  About  */
+    #about { background: #171412; }
+    .about-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute; top: -18px; left: -18px;
+      right: 18px; bottom: 18px;
+      border: 1px solid rgba(201,169,110,.25);
+      pointer-events: none;
+    }
+    .about-img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+      display: block;
+      filter: sepia(12%) contrast(1.05) saturate(0.92);
+    }
+    .about-badge {
+      position: absolute; bottom: -18px; right: -18px;
+      background: #C9A96E;
+      color: #0C0A09;
+      padding: 1.1rem 1.4rem;
+      font-family: 'Cormorant Infant', serif;
+      font-size: .92rem;
+      font-style: italic;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    /* servisi */
+    #services { background: #0C0A09; }
+    .services-grid {
+      max-width: 1200px; margin: 3rem auto 0;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px;
+    }
+    .service-card {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4; cursor: pointer;
+      background: #221E1A;
+    }
+    .service-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .7s ease, filter .5s;
+      filter: sepia(18%) saturate(.85) contrast(1.08);
+    }
+    .service-card:hover img {
+      transform: scale(1.06);
+      filter: sepia(8%) saturate(1) contrast(1.05);
+    }
+    .service-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,10,9,.88) 0%, transparent 55%);
+      transition: background .4s;
+    }
+    .service-card:hover .service-card-overlay {
+      background: linear-gradient(to top, rgba(12,10,9,.92) 0%, rgba(12,10,9,.22) 100%);
+    }
+    .service-card-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.8rem 1.5rem;
+    }
+    .service-num {
+      font-size: .62rem; letter-spacing: .22em;
+      color: #C9A96E; margin-bottom: .5rem;
+    }
+    .service-name {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.55rem; font-weight: 400;
+      color: #F5EFE6; line-height: 1.2;
+    }
+    .service-desc {
+      font-size: .82rem; letter-spacing: .04em;
+      color: #A89888;
+      margin-top: .5rem;
+      max-height: 0; overflow: hidden;
+      transition: max-height .5s ease, opacity .4s;
+      opacity: 0;
+    }
+    .service-card:hover .service-desc {
+      max-height: 60px; opacity: 1;
+    }
+    .service-arrow {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,169,110,.35);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(-4px);
+      transition: opacity .3s, transform .3s, background .25s, border-color .25s;
+    }
+    .service-card:hover .service-arrow {
+      opacity: 1; transform: translateY(0);
+    }
+    .service-arrow:hover {
+      background: #C9A96E; border-color: #C9A96E;
+    }
+
+    /* kartice u sekciji galerije*/
+    #gallery { background: #171412; padding-bottom: 6rem; }
+
+    .gal-stage {
+      position: relative;
+      height: 480px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .gal-card {
+      position: absolute;
+      width: 290px; height: 410px;
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      transition:
+        transform .62s cubic-bezier(.34,1.08,.64,1),
+        opacity   .55s ease,
+        box-shadow .4s ease;
+      user-select: none;
+    }
+    .gal-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: sepia(18%) saturate(.85) contrast(1.06);
+      transition: filter .45s;
+    }
+    .gal-card.pos-center img { filter: sepia(5%) saturate(1) contrast(1.04); }
+
+    .gal-card-inner {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top,
+        rgba(12,10,9,.92) 0%,
+        rgba(12,10,9,.14) 55%,
+        rgba(12,10,9,.24) 100%);
+    }
+    .gal-card-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.8rem 1.6rem 1.6rem; z-index: 2;
+    }
+    .gal-card-cat {
+      display: block;
+      font-size: .58rem; letter-spacing: .26em;
+      text-transform: uppercase; color: #C9A96E;
+      margin-bottom: .5rem;
+    }
+    .gal-card-title {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.9rem; font-weight: 300; line-height: 1.1;
+      color: #F5EFE6; margin-bottom: .3rem;
+    }
+    .gal-card-sub {
+      font-size: .7rem; letter-spacing: .08em;
+      color: rgba(245,239,230,.5);
+    }
+    .gal-card-cta {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+      color: #0C0A09; background: #C9A96E;
+      padding: .5rem 1rem; margin-top: .9rem;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity .35s .05s, transform .35s .05s, background .2s;
+    }
+    .gal-card.pos-center .gal-card-cta { opacity: 1; transform: translateY(0); }
+    .gal-card-cta:hover { background: #DEC99A; }
+
+    /* pozicije */
+    .gal-card.pos-center {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      left: 50%; top: 50%;
+      z-index: 10;
+      box-shadow: 0 44px 110px rgba(0,0,0,.75), 0 0 0 1px rgba(201,169,110,.28);
+    }
+    .gal-card.pos-left {
+      transform: translate(calc(-50% - 250px), -50%) rotate(0deg) scale(0.86);
+      left: 50%; top: 50%;
+      z-index: 5; opacity: .82;
+      box-shadow: 0 20px 55px rgba(0,0,0,.55);
+    }
+    .gal-card.pos-right {
+      transform: translate(calc(-50% + 250px), -50%) rotate(0deg) scale(0.86);
+      left: 50%; top: 50%;
+      z-index: 5; opacity: .82;
+      box-shadow: 0 20px 55px rgba(0,0,0,.55);
+    }
+    .gal-card.pos-hidden-left {
+      transform: translate(calc(-50% - 520px), -50%) rotate(0deg) scale(0.7);
+      left: 50%; top: 50%;
+      z-index: 1; opacity: 0; pointer-events: none;
+    }
+    .gal-card.pos-hidden-right {
+      transform: translate(calc(-50% + 520px), -50%) rotate(0deg) scale(0.7);
+      left: 50%; top: 50%;
+      z-index: 1; opacity: 0; pointer-events: none;
+    }
+
+    
+    .gal-controls {
+      display: flex; align-items: center; justify-content: center; gap: 2rem;
+      margin-top: 3rem;
+    }
+    .gal-btn {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(201,169,110,.35);
+      display: flex; align-items: center; justify-content: center;
+      background: transparent; color: #C9A96E;
+      cursor: pointer;
+      transition: background .25s, border-color .25s, color .25s, transform .18s;
+    }
+    .gal-btn:hover {
+      background: #C9A96E; color: #0C0A09;
+      border-color: #C9A96E; transform: scale(1.08);
+    }
+    .gal-dots { display: flex; gap: .55rem; align-items: center; }
+    .gal-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #2E2A25; border: none; padding: 0;
+      cursor: pointer;
+      transition: background .3s, transform .3s;
+    }
+    .gal-dot.active { background: #C9A96E; transform: scale(1.5); }
+
+    @media (max-width: 768px) {
+      .gal-stage { height: 380px; }
+      .gal-card { width: 210px; height: 300px; border-radius: 16px; }
+      .gal-card-title { font-size: 1.45rem; }
+      .gal-card.pos-left  { transform: translate(calc(-50% - 170px), -50%) rotate(-0deg) scale(0.84); }
+      .gal-card.pos-right { transform: translate(calc(-50% + 170px), -50%) rotate(0deg)  scale(0.84); }
+    }
+    @media (max-width: 480px) {
+      .gal-stage { height: 320px; }
+      .gal-card { width: 170px; height: 245px; border-radius: 14px; }
+      .gal-card-title { font-size: 1.2rem; }
+      .gal-card.pos-left  { transform: translate(calc(-50% - 130px), -50%) rotate(-0deg) scale(0.82); }
+      .gal-card.pos-right { transform: translate(calc(-50% + 130px), -50%) rotate(0deg)  scale(0.82); }
+    }
+
+
+    
+    #testimonials { background: #0C0A09; padding: 5rem 2rem; }
+    .testimonials-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem;
+    }
+    .testimonial {
+      padding: 2rem; border: 1px solid #2E2A25;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '\201C';
+      font-family: 'Cormorant Infant', serif;
+      font-size: 5rem; line-height: 1;
+      color: rgba(201,169,110,.18);
+      position: absolute; top: -.5rem; left: 1.2rem;
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1rem; font-style: italic;
+      line-height: 1.75; color: #A89888;
+      margin-bottom: 1.2rem;
+    }
+    .testimonial-author {
+      font-size: .72rem; letter-spacing: .16em;
+      text-transform: uppercase; color: #C9A96E;
+    }
+
+    /*  kontakt  */
+    #contact { background: #171412; }
+    .contact-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start;
+    }
+    .contact-info-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .contact-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border: 1px solid #2E2A25;
+      display: flex; align-items: center; justify-content: center;
+      color: #C9A96E;
+    }
+    .contact-label {
+      font-size: .68rem; letter-spacing: .2em;
+      text-transform: uppercase; color: #C9A96E;
+      margin-bottom: .3rem;
+    }
+    .contact-val {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.05rem; color: #C4B5A5; line-height: 1.55;
+    }
+    .contact-social { display: flex; gap: 1rem; margin-top: 2.5rem; }
+    .social-btn {
+      width: 40px; height: 40px;
+      border: 1px solid #2E2A25;
+      display: flex; align-items: center; justify-content: center;
+      color: #A89888; text-decoration: none;
+      transition: border-color .25s, color .25s, background .25s;
+      cursor: pointer;
+    }
+    .social-btn:hover { border-color: #C9A96E; color: #C9A96E; background: rgba(201,169,110,.07); }
+
+    /* Forma */
+    .form-group { margin-bottom: 1.4rem; }
+    .form-label {
+      display: block;
+      font-size: .68rem; letter-spacing: .18em;
+      text-transform: uppercase; color: #A89888;
+      margin-bottom: .55rem;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: #0C0A09;
+      border: 1px solid #2E2A25;
+      color: #F5EFE6;
+      font-family: 'Jost', sans-serif;
+      font-size: .9rem; font-weight: 300;
+      padding: .85rem 1rem;
+      outline: none;
+      transition: border-color .25s;
+      resize: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: #4A4440; }
+    .form-input:focus, .form-textarea:focus { border-color: #C9A96E; }
+    .form-textarea { min-height: 130px; }
+
+    /* Validacija */
+    .form-input.error, .form-textarea.error { border-color: #B0524A; }
+    .form-error-msg {
+      display: none;
+      font-size: .72rem; letter-spacing: .04em;
+      color: #C9776F; margin-top: .4rem;
+    }
+    .form-error-msg.show { display: block; }
+    .form-btn:disabled { opacity: .55; cursor: wait; transform: none; }
+    /* Honeypot — skriveno od ljudi, vidljivo botovima */
+    .hp-field {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px; height: 1px;
+      overflow: hidden;
+    }
+    .form-btn {
+      display: inline-block;
+      background: #C9A96E; color: #0C0A09;
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase;
+      padding: .95rem 2.6rem;
+      cursor: pointer;
+      transition: background .25s, transform .2s;
+    }
+    .form-btn:hover { background: #DEC99A; transform: translateY(-2px); }
+
+    /*  Footer  */
+    footer {
+      background: #0C0A09;
+      border-top: 1px solid #2E2A25;
+      padding: 2.5rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-brand {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem; color: #C9A96E;
+    }
+    .footer-copy {
+      font-size: .72rem; letter-spacing: .1em;
+      color: #4A4440;
+    }
+
+    /* Animations  */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes scrollDot {
+      0%   { transform: translateX(-50%) translateY(0); opacity: 1; }
+      80%  { transform: translateX(-50%) translateY(12px); opacity: 0; }
+      100% { transform: translateX(-50%) translateY(0); opacity: 0; }
+    }
+
+    /* animacije za skrolanje */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .22s; }
+    .reveal-delay-3 { transition-delay: .34s; }
+    .reveal-delay-4 { transition-delay: .46s; }
+
+    /*  responzivnost  */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-inner { grid-template-columns: 1fr; max-width: 480px; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-wrap { max-width: 480px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 640px) {
+      #navbar { padding: 1.2rem 1.2rem; }
+      .nav-links { display: none !important; }
+      #nav-toggle { display: flex; }
+      #nav-cta { display: none; }
+      section { padding: 5rem 1.2rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .service-card { aspect-ratio: 2/3; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .hero-cta { width: 100%; text-align: center; }
+    }
+    @media (max-width: 400px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!--  NAVBAR  -->
+  <nav id="navbar" role="navigation" aria-label="Glavna navigacija">
+    <a href="#hero" class="font-script text-2xl" style="color:#C9A96E; text-decoration:none; line-height:1;">Foto Anita</a>
+
+    <div class="nav-links" style="display:flex; gap:2.5rem;" role="list">
+      <a href="#about"        class="nav-link" role="listitem">O nama</a>
+      <a href="#services"     class="nav-link" role="listitem">Usluge</a>
+      <a href="#gallery"      class="nav-link" role="listitem">Galerija</a>
+      <a href="#testimonials" class="nav-link" role="listitem">Recenzije</a>
+      <a href="#contact"      class="nav-link" role="listitem">Kontakt</a>
+    </div>
+
+    <a href="#contact" id="nav-cta" style="
+      font-family:'Jost',sans-serif; font-size:.68rem; letter-spacing:.2em;
+      text-transform:uppercase; color:#0C0A09; background:#C9A96E;
+      padding:.6rem 1.4rem; text-decoration:none; cursor:pointer;
+      transition:background .25s;"
+      onmouseover="this.style.background='#DEC99A'"
+      onmouseout="this.style.background='#C9A96E'">
+      Rezerviraj
+    </a>
+
+    <button id="nav-toggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" aria-label="Mobilna navigacija">
+    <a href="#about">O nama</a>
+    <a href="#services">Usluge</a>
+    <a href="#gallery">Galerija</a>
+    <a href="#testimonials">Recenzije</a>
+    <a href="#contact">Kontakt</a>
+    <a href="#contact" style="color:#C9A96E; font-family:'Jost',sans-serif; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;">Rezerviraj termin →</a>
+  </div>
+
+  <!--  HERO  -->
+  <section id="hero" aria-label="Hero sekcija">
+    <div id="hero-bg" role="img" aria-label="Elegantna portretna fotografija"></div>
+    <div id="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Since 1998.</p>
+      <h1 class="hero-title">Foto Anita</h1>
+      <p class="hero-subtitle">Svaki trenutak zaslužuje biti vječan</p>
+      <div class="hero-divider"></div>
+      <a href="#gallery" class="hero-cta">Pogledaj radove</a>
+    </div>
+
+    <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+      <span>Skrolaj</span>
+    </div>
+  </section>
+
+  <!--  ABOUT  -->
+  <section id="about" aria-label="O studiju">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img
+          class="about-img"
+          src="https://images.unsplash.com/photo-1554080353-a576cf803bda?w=900&q=80"
+          alt="Anita fotografira s profesionalnim fotoaparatom u studiju"
+          loading="lazy"
+        />
+        <div class="about-badge">
+          Više od 25<br />godina iskustva
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <p class="section-eyebrow">O nama</p>
+        <h2 class="section-title">Strast prema <em>ljepoti</em><br />svakog kadra</h2>
+        <div class="gold-rule"></div>
+        <p class="body-text">
+          Foto Anita studio u Valpovu osnovan je iz ljubavi prema fotografiji —
+          vjere da svaki portret, svako vjenčanje i svaki poseban trenutak
+          zaslužuje biti zabilježen s pažnjom i dušom.
+        </p>
+        <p class="body-text" style="margin-top:1.2rem;">
+          Radimo s najmodernijom opremom, ali naša najveća snaga je odnos
+          koji gradimo s klijentima. Opuštena atmosfera, prirodni osmijesi,
+          autentični trenuci — to je naš potpis.
+        </p>
+
+        <div style="display:flex; gap:3.5rem; margin-top:2.8rem;">
+          <div class="reveal reveal-delay-2">
+            <div style="font-family:'Cormorant Infant',serif; font-size:2.8rem; font-weight:300; color:#C9A96E; line-height:1;">500+</div>
+            <div style="font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:#A89888; margin-top:.3rem;">Zadovoljnih obitelji</div>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <div style="font-family:'Cormorant Infant',serif; font-size:2.8rem; font-weight:300; color:#C9A96E; line-height:1;">200+</div>
+            <div style="font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:#A89888; margin-top:.3rem;">Vjenčanja</div>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <div style="font-family:'Cormorant Infant',serif; font-size:2.8rem; font-weight:300; color:#C9A96E; line-height:1;">25+</div>
+            <div style="font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:#A89888; margin-top:.3rem;">Godina rada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  SERVICES  -->
+  <section id="services" aria-label="Usluge">
+    <div style="max-width:1200px; margin:0 auto; text-align:center;" class="reveal">
+      <p class="section-eyebrow">Usluge</p>
+      <h2 class="section-title">Zajedno <em>stvaramo</em></h2>
+    </div>
+
+    <div class="services-grid reveal"> <!--TODO Centrirat ovo u CSSu-->
+      <!-- Portreti -->
+      <div class="service-card" tabindex="0" role="article" aria-label="Portreti">
+        <img
+          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&q=80"
+          alt="Elegantni ženski portret u toplim tonovima"
+          loading="lazy"
+        />
+        <div class="service-card-overlay"></div>
+        <div class="service-card-body">
+          <div class="service-num">01</div>
+          <div class="service-name">Portreti</div>
+          <div class="service-desc">Individualni i obiteljski portreti koji otkrivaju vašu osobnost.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Vjenčanja -->
+      <div class="service-card" tabindex="0" role="article" aria-label="Vjenčanja">
+        <img
+          src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=700&q=80"
+          alt="Romantičan vjenčani par u zagrljaju"
+          loading="lazy"
+        />
+        <div class="service-card-overlay"></div>
+        <div class="service-card-body">
+          <div class="service-num">02</div>
+          <div class="service-name">Vjenčanja</div>
+          <div class="service-desc">Pamtite najsretniji dan svog života kroz svaku emociju.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Događaji -->
+      <div class="service-card" tabindex="0" role="article" aria-label="Događaji">
+        <img
+          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80"
+          alt="Svečani događaj s puno gostiju i elegantnim osvjetljenjem"
+          loading="lazy"
+        />
+        <div class="service-card-overlay"></div>
+        <div class="service-card-body">
+          <div class="service-num">03</div>
+          <div class="service-name">Događaji</div>
+          <div class="service-desc">Krštenja, prve pričesti, mature i sve prigode vrijede spomena.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </div>
+      </div>
+
+    
+    </div>
+  </section>
+
+  <!--  GALLERY - TODO: dodati stranice za galerije i dodati slike tamo -->
+  <section id="gallery" aria-label="Galerije radova">
+    <div style="max-width:1100px; margin:0 auto 4rem; text-align:center;" class="reveal">
+      <p class="section-eyebrow">Galerije</p>
+      <h2 class="section-title">Istražite naše <em>galerije</em></h2>
+    </div>
+
+    <!-- kartice - TODO dodati vlastite slike-->
+    <div class="gal-stage reveal" role="region" aria-label="Galerija kartica">
+
+      <
+      <div class="gal-card pos-center" tabindex="0" role="button"
+           data-href="galerije/ivana-marko.html"
+           aria-label="Otvori galeriju: Ivana & Marko vjenčanje">
+        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=700&q=80"
+             alt="Ivana i Marko na vjenčanom danu" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Vjenčanje · 2024</span>
+          <h3 class="gal-card-title">Ivana<br />&amp; Marko</h3>
+          <p class="gal-card-sub">Valpovo · 54 fotografije</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="gal-card pos-right" tabindex="0" role="button"
+           data-href="galerije/portreti.html"
+           aria-label="Otvori galeriju: Studio portreti">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&q=80"
+             alt="Elegantni ženski portret" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Portreti · Studio</span>
+          <h3 class="gal-card-title">Studio<br />portreti</h3>
+          <p class="gal-card-sub">Valpovo · 38 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="gal-card pos-hidden-right" tabindex="0" role="button"
+           data-href="galerije/ana-luka.html"
+           aria-label="Otvori galeriju: Ana & Luka vjenčanje">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700&q=80"
+             alt="Ana i Luka vjenčanje" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Vjenčanje · 2023</span>
+          <h3 class="gal-card-title">Ana<br />&amp; Luka</h3>
+          <p class="gal-card-sub">Osijek · 61 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="gal-card pos-hidden-left" tabindex="0" role="button"
+           data-href="galerije/dogadaji.html"
+           aria-label="Otvori galeriju: Posebni događaji">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80"
+             alt="Svečani događaj s gostima" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Događaji · 2024</span>
+          <h3 class="gal-card-title">Posebni<br />trenuci</h3>
+          <p class="gal-card-sub">Valpovo · 47 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="gal-card pos-left" tabindex="0" role="button"
+           data-href="galerije/obitelj.html"
+           aria-label="Otvori galeriju: Obiteljski portreti">
+        <img src="https://images.unsplash.com/photo-1559628233-100c798642d2?w=700&q=80"
+             alt="Obiteljski portret u prirodi" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Obitelj · Studio</span>
+          <h3 class="gal-card-title">Obiteljski<br />portreti</h3>
+          <p class="gal-card-sub">Valpovo · 29 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- gumbovi za lijevo desno -->
+    <div class="gal-controls reveal">
+      <button class="gal-btn" id="gal-prev" aria-label="Prethodna galerija">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="gal-dots" id="gal-dots" role="tablist" aria-label="Odabir galerije"></div>
+      <button class="gal-btn" id="gal-next" aria-label="Sljedeća galerija">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!--  Recenzije(TODO: Azurirati sa pravim recenzijama s googlea)  -->
+  <section id="testimonials" aria-label="Recenzije klijenata">
+    <div style="max-width:900px; margin:0 auto 3.5rem; text-align:center;" class="reveal">
+      <p class="section-eyebrow">Recenzije</p>
+      <h2 class="section-title">Što kažu <em>naši klijenti</em></h2>
+    </div>
+
+    <div class="testimonials-inner">
+      <div class="testimonial reveal reveal-delay-1">
+        <p class="testimonial-text">
+          "Anita je uspjela uhvatiti svaki dragocjeni trenutak našeg vjenčanja.
+          Fotografije su toliko lijepe da nam je teško odabrati favorite. Apsolutno preporučujemo!"
+        </p>
+        <div class="testimonial-author">Marija & Tomislav — Osijek</div>
+      </div>
+      <div class="testimonial reveal reveal-delay-2">
+        <p class="testimonial-text">
+          "Fotografirali smo obiteljski portret za Božić. Ozračje je bilo opušteno,
+          a rezultati su nevjerojatni. Djeca su se osjećala ugodno od prve sekunde."
+        </p>
+        <div class="testimonial-author">Obitelj Horvat — Valpovo</div>
+      </div>
+      <div class="testimonial reveal reveal-delay-3">
+        <p class="testimonial-text">
+          "Produktne fotografije za naš webshop podigle su prodaju za vidljiv postotak.
+          Profesionalan pristup, brza dostava, odlična komunikacija."
+        </p>
+        <div class="testimonial-author">Ana Kovač — Đakovo</div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Kontakt  -->
+  <section id="contact" aria-label="Kontakt">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="section-eyebrow">Kontakt</p>
+        <h2 class="section-title">Zakažite vašu<br /><em>sesiju</em></h2>
+        <div class="gold-rule"></div>
+        <p class="body-text" style="margin-bottom:2.5rem;">
+          Svaki projekt je jedinstven. Kontaktirajte nas i zajedno
+          ćemo Vam stvoriti vječne uspomene!
+        </p>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Adresa</div>
+            <div class="contact-val">Trg kralja Tomislava 16<br />31550 Valpovo, Hrvatska</div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Telefon</div>
+            <div class="contact-val">+385 31 650 542</div>
+            <div class="contact-val">+385 91 644 64492</div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">E-mail</div>
+            <div class="contact-val">foto.anita96@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 21v-6M16 21v-6M3 9h18"/><path d="M8 3v6M16 3v6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Radno vrijeme</div>
+            <div class="contact-val">Pon – Pet: 08:00 – 19:00<br />Sub: 08:00 – 12:00</div>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <!-- Facebook -->
+          <a class="social-btn" href="https://web.facebook.com/p/Foto-Anita-100063782340610/?locale=hr_HR&_rdc=1&_rdr" aria-label="Posjetite nas na Facebooku" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a class="social-btn" href="https://www.instagram.com/fotoanitavalpovo/" aria-label="Pratite nas na Instagramu" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Forma -->
+      <div class="reveal reveal-delay-2">
+        <form id="contact-form" novalidate aria-label="Kontaktni obrazac">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">
+            <div class="form-group">
+              <label class="form-label" for="fname">Ime</label>
+              <input class="form-input" type="text" id="fname" name="fname" placeholder="Vaše ime" required autocomplete="given-name" />
+              <div class="form-error-msg" id="err-fname">Unesite svoje ime.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lname">Prezime</label>
+              <input class="form-input" type="text" id="lname" name="lname" placeholder="Vaše prezime" required autocomplete="family-name" />
+              <div class="form-error-msg" id="err-lname">Unesite svoje prezime.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="vas@email.com" required autocomplete="email" />
+            <div class="form-error-msg" id="err-email">Unesite ispravnu e-mail adresu.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="service">Vrsta usluge</label>
+            <select class="form-input" id="service" name="service" required style="cursor:pointer; appearance:none;">
+              <option value="" disabled selected style="color:#4A4440; background:#0C0A09;">Odaberite uslugu…</option>
+              <option value="Portret" style="background:#0C0A09;">Portret</option>
+              <option value="Vjenčanje" style="background:#0C0A09;">Vjenčanje</option>
+              <option value="Događaj" style="background:#0C0A09;">Događaj</option>
+              <option value="Produkt fotografija" style="background:#0C0A09;">Produkt fotografija</option>
+              <option value="Ostalo" style="background:#0C0A09;">Ostalo</option>
+            </select>
+            <div class="form-error-msg" id="err-service">Odaberite vrstu usluge.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Poruka</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Opišite što trebate…"></textarea>
+          </div>
+          
+
+          <!--zastita od spama-->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button type="submit" class="form-btn" id="submit-btn">Pošalji upit</button>
+
+          <div id="form-status" role="status" aria-live="polite" style="margin-top:1.2rem;">
+            <div id="form-success" style="
+              display:none;
+              font-family:'Cormorant Infant',serif; font-style:italic;
+              color:#C9A96E; font-size:1rem;">
+              Hvala! Javit ćemo se uskoro.
+            </div>
+            <div id="form-error" style="
+              display:none;
+              font-family:'Cormorant Infant',serif; font-style:italic;
+              color:#C9776F; font-size:1rem;">
+              Slanje nije uspjelo. Pokušajte ponovno ili nas kontaktirajte izravno na info@fotoanita.hr.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!--  footer  -->
+  <footer role="contentinfo">
+    <div class="footer-brand">Foto Anita</div>
+    <p class="footer-copy">&copy; <span id="copy-year">2025</span> Foto Anita, Valpovo · Sva prava pridržana</p>
+    <nav aria-label="Footer navigacija" style="display:flex; gap:1.8rem;">
+      <a href="#about"   style="font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#4A4440; text-decoration:none; transition:color .2s; cursor:pointer;"
+         onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#4A4440'">O nama</a>
+      <a href="#gallery" style="font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#4A4440; text-decoration:none; transition:color .2s; cursor:pointer;"
+         onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#4A4440'">Galerija</a>
+      <a href="#contact" style="font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#4A4440; text-decoration:none; transition:color .2s; cursor:pointer;"
+         onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#4A4440'">Kontakt</a>
+    </nav>
+  </footer>
+
+
+  <!--  JS  -->
+  <script>
+    //  Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    //  responzivni menu
+    const navToggle  = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    navToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open);
+      navToggle.setAttribute('aria-label', open ? 'Zatvori izbornik' : 'Otvori izbornik');
+    });
+    // Zatvori meni nakon klika na link
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // zoomiraj hero pri ucitavanju
+    const heroBg = document.getElementById('hero-bg');
+    window.addEventListener('load', () => heroBg.classList.add('loaded'));
+
+    // skroll animacije
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // kartice
+    (function () {
+      const cards = Array.from(document.querySelectorAll('.gal-card'));
+      const n = cards.length;
+      let cur = 0;
+
+      const POS = ['pos-center','pos-right','pos-hidden-right','pos-hidden-left','pos-left'];
+
+      function posOf(i) {
+        const off = (i - cur + n) % n;
+        return POS[off] !== undefined ? POS[off] : 'pos-hidden-right';
+      }
+
+      function refresh() {
+        cards.forEach((card, i) => {
+          card.className = 'gal-card ' + posOf(i);
+        });
+        document.querySelectorAll('.gal-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === cur);
+          d.setAttribute('aria-selected', i === cur);
+        });
+      }
+
+      document.getElementById('gal-prev').addEventListener('click', () => {
+        cur = (cur - 1 + n) % n; refresh();
+      });
+      document.getElementById('gal-next').addEventListener('click', () => {
+        cur = (cur + 1) % n; refresh();
+      });
+
+      cards.forEach((card, i) => {
+        card.addEventListener('click', () => {
+          if (i === cur) {
+            window.location.href = card.dataset.href;
+          } else {
+            cur = i; refresh();
+          }
+        });
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+        });
+      });
+
+      // Build dots
+      const dotsEl = document.getElementById('gal-dots');
+      cards.forEach((card, i) => {
+        const d = document.createElement('button');
+        d.className = 'gal-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('role', 'tab');
+        d.setAttribute('aria-label', card.getAttribute('aria-label') || `Galerija ${i + 1}`);
+        d.setAttribute('aria-selected', i === 0);
+        d.addEventListener('click', () => { cur = i; refresh(); });
+        dotsEl.appendChild(d);
+      });
+
+      // Arrow keys — samo kad je galerija u viewportu i kad se ne tipka u formi
+      const galSection = document.getElementById('gallery');
+      let galInView = false;
+      new IntersectionObserver(entries => {
+        entries.forEach(e => { galInView = e.isIntersecting; });
+      }, { threshold: 0.3 }).observe(galSection);
+
+      document.addEventListener('keydown', e => {
+        const t = e.target;
+        const typing = t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable;
+        if (!galInView || typing) return;
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); cur = (cur - 1 + n) % n; refresh(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); cur = (cur + 1) % n; refresh(); }
+      });
+
+      // Touch swipe na mobitelu
+      const stage = document.querySelector('.gal-stage');
+      let touchX = null;
+      stage.addEventListener('touchstart', e => {
+        touchX = e.touches[0].clientX;
+      }, { passive: true });
+      stage.addEventListener('touchend', e => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 45) {
+          cur = dx < 0 ? (cur + 1) % n : (cur - 1 + n) % n;
+          refresh();
+        }
+        touchX = null;
+      }, { passive: true });
+    })();
+
+    // ── Contact form ──
+    // TODO, napraviti account na formspree i popuniti endpoint da mail radi, u medjuvremenu otvorit ce se default mail aplikacija na klijentovom racunalu/mobu
+    //ne znam treba li to biti env varijabla radi sigurnosti
+    const FORMSPREE_ENDPOINT = '';
+    const CONTACT_EMAIL = 'info@fotoanita.hr';
+
+    const form      = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successEl = document.getElementById('form-success');
+    const errorEl   = document.getElementById('form-error');
+
+    const fields = {
+      fname:   { el: document.getElementById('fname'),   err: document.getElementById('err-fname') },
+      lname:   { el: document.getElementById('lname'),   err: document.getElementById('err-lname') },
+      email:   { el: document.getElementById('email'),   err: document.getElementById('err-email') },
+      service: { el: document.getElementById('service'), err: document.getElementById('err-service') },
+    };
+
+    function setFieldError(f, hasError) {
+      f.el.classList.toggle('error', hasError);
+      f.err.classList.toggle('show', hasError);
+    }
+
+    function validate() {
+      let ok = true;
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+      setFieldError(fields.fname, fields.fname.el.value.trim() === '');
+      setFieldError(fields.lname, fields.lname.el.value.trim() === '');
+      setFieldError(fields.email, !emailRe.test(fields.email.el.value.trim()));
+      setFieldError(fields.service, fields.service.el.value === '');
+
+      Object.values(fields).forEach(f => { if (f.el.classList.contains('error')) ok = false; });
+      return ok;
+    }
+
+    // Makni error čim korisnik počne tipkati / odabere
+    Object.values(fields).forEach(f => {
+      f.el.addEventListener('input', () => setFieldError(f, false));
+      f.el.addEventListener('change', () => setFieldError(f, false));
+    });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+
+      //  ako je bot popunio skriveno polje, napravi fake success
+      if (form.website && form.website.value !== '') {
+        successEl.style.display = 'block';
+        form.reset();
+        return;
+      }
+
+      if (!validate()) return;
+
+      const data = {
+        ime:      fields.fname.el.value.trim(),
+        prezime:  fields.lname.el.value.trim(),
+        email:    fields.email.el.value.trim(),
+        usluga:   fields.service.el.value,
+        poruka:   document.getElementById('message').value.trim(),
+      };
+
+      // Bez Formspree endpointa → mailto fallback
+      if (!FORMSPREE_ENDPOINT) {
+        const subject = encodeURIComponent(`Upit s weba — ${data.usluga}`);
+        const body = encodeURIComponent(
+          `Ime: ${data.ime} ${data.prezime}\nE-mail: ${data.email}\nUsluga: ${data.usluga}\n\n${data.poruka}`
+        );
+        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+        successEl.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Šaljem…';
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ime: data.ime,
+            prezime: data.prezime,
+            email: data.email,        // Formspree koristi ovo za reply-to
+            usluga: data.usluga,
+            poruka: data.poruka,
+            _subject: `Upit s weba — ${data.usluga}`,
+          }),
+        });
+
+        if (res.ok) {
+          successEl.style.display = 'block';
+          form.reset();
+        } else {
+          errorEl.style.display = 'block';
+        }
+      } catch (err) {
+        errorEl.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Pošalji upit';
+      }
+    });
+
+    // godina i copyright
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
