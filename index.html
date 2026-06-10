@@ -1329,7 +1329,7 @@
     // TODO, napraviti account na formspree i popuniti endpoint da mail radi, u medjuvremenu otvorit ce se default mail aplikacija na klijentovom racunalu/mobu
     //ne znam treba li to biti env varijabla radi sigurnosti
     const FORMSPREE_ENDPOINT = '';
-    const CONTACT_EMAIL = 'info@fotoanita.hr';
+    const CONTACT_EMAIL = 'foto.anita95@gmail.com';
 
     const form      = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -1389,7 +1389,7 @@
         poruka:   document.getElementById('message').value.trim(),
       };
 
-      // Bez Formspree endpointa → mailto fallback
+      // fallback ako formspree endpoint ne postoji
       if (!FORMSPREE_ENDPOINT) {
         const subject = encodeURIComponent(`Upit s weba — ${data.usluga}`);
         const body = encodeURIComponent(
