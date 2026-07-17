@@ -13,13 +13,13 @@
   # --- 2) Stare WordPress stranice -> sekcije nove stranice ----------
   #  PROVJERI slugove: upisi ovdje TOCNE stare URL-ove (bez domene)
   #  koji se pojavljuju u Google rezultatima.
-  RewriteRule ^o-nama/?$         /#about         [R=301,L,NC]
-  RewriteRule ^onama/?$          /#about         [R=301,L,NC]
-  RewriteRule ^usluge/?$         /#services      [R=301,L,NC]
-  RewriteRule ^galerija/?$       /#gallery       [R=301,L,NC]
-  RewriteRule ^galerije/?$       /#gallery       [R=301,L,NC]
+  RewriteRule ^o-nama/?$         /#about         [R=301,L,NC,NE]
+  RewriteRule ^onama/?$          /#about         [R=301,L,NC,NE]
+  RewriteRule ^usluge/?$         /#services      [R=301,L,NC,NE]
+  RewriteRule ^galerija/?$       /#gallery       [R=301,L,NC,NE]
+  RewriteRule ^galerije/?$       /#gallery       [R=301,L,NC,NE]
   RewriteRule ^recenzije/?$      /#testimonials  [R=301,L,NC]
-  RewriteRule ^kontakt/?$        /#contact       [R=301,L,NC]
+  RewriteRule ^kontakt/?$        /#contact       [R=301,L,NC,NE]
 
   # --- 3) Sve ostale stare WP putanje (koje vise ne postoje) --------
   #  Preusmjeri na pocetnu. Preskace stvarne datoteke i mape nove
