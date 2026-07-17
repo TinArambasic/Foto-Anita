@@ -9,11 +9,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Foto Anita — Valpovo, Hrvatska" />
   <meta property="og:description" content="Profesionalna fotografija u Valpovu. Portreti, vjenčanja, događaji i produkt fotografija." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80" />
+  <!-- Za dijeljenje na društvenim mrežama treba apsolutni URL, npr. https://tvoja-domena.hr/galerije/slike/kristiana-miroslav/15.jpg -->
+  <meta property="og:image" content="galerije/slike/kristiana-miroslav/15.jpg" />
   <meta property="og:locale" content="hr_HR" />
 
   
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1800&q=80" /> <!-- ove sve slike jos moram mijenjat sa vlastitima-->
+  <link rel="preload" as="image" href="galerije/slike/kristiana-miroslav/15.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -148,7 +149,7 @@
     }
     #hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1800&q=80');
+      background-image: url('galerije/slike/kristiana-miroslav/15.jpg');
       background-size: cover; background-position: center;
       transform: scale(1);
       will-change: transform;
@@ -319,8 +320,8 @@
     /* servisi */
     #services { background: #0C0A09; }
     .services-grid {
-      max-width: 1200px; margin: 3rem auto 0;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px;
+      max-width: 920px; margin: 3rem auto 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
     }
     .service-card {
       position: relative; overflow: hidden;
@@ -686,7 +687,7 @@
 
     /*  responzivnost  */
     @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
       .testimonials-inner { grid-template-columns: 1fr; max-width: 480px; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-img-wrap { max-width: 480px; }
@@ -698,7 +699,7 @@
       #nav-toggle { display: flex; }
       #nav-cta { display: none; }
       section { padding: 5rem 1.2rem; }
-      .services-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .services-grid { grid-template-columns: 1fr; gap: 2px; }
       .service-card { aspect-ratio: 2/3; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
       .hero-cta { width: 100%; text-align: center; }
@@ -779,8 +780,8 @@
       <div class="about-img-wrap reveal">
         <img
           class="about-img"
-          src="https://images.unsplash.com/photo-1554080353-a576cf803bda?w=900&q=80"
-          alt="Anita fotografira s profesionalnim fotoaparatom u studiju"
+          src="galerije/slike/kristiana-miroslav/32.jpg"
+          alt="Portret mladenke — rad studija Foto Anita"
           loading="lazy"
         />
         <div class="about-badge">
@@ -828,12 +829,12 @@
       <h2 class="section-title">Zajedno <em>stvaramo</em></h2>
     </div>
 
-    <div class="services-grid reveal"> <!--TODO Centrirat ovo u CSSu-->
+    <div class="services-grid reveal">
       <!-- Portreti -->
       <div class="service-card" tabindex="0" role="article" aria-label="Portreti">
         <img
-          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&q=80"
-          alt="Elegantni ženski portret u toplim tonovima"
+          src="galerije/slike/antonia-marko/34.jpg"
+          alt="Portret mladenke u toplim tonovima"
           loading="lazy"
         />
         <div class="service-card-overlay"></div>
@@ -852,7 +853,7 @@
       <!-- Vjenčanja -->
       <div class="service-card" tabindex="0" role="article" aria-label="Vjenčanja">
         <img
-          src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=700&q=80"
+          src="galerije/slike/stela-josip/03.jpg"
           alt="Romantičan vjenčani par u zagrljaju"
           loading="lazy"
         />
@@ -872,8 +873,8 @@
       <!-- Događaji -->
       <div class="service-card" tabindex="0" role="article" aria-label="Događaji">
         <img
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80"
-          alt="Svečani događaj s puno gostiju i elegantnim osvjetljenjem"
+          src="galerije/slike/lucija-antonijo/35.jpg"
+          alt="Svečani trenutak s vjenčanja"
           loading="lazy"
         />
         <div class="service-card-overlay"></div>
@@ -893,27 +894,26 @@
     </div>
   </section>
 
-  <!--  GALLERY - TODO: dodati stranice za galerije i dodati slike tamo -->
+  <!--  GALLERY  -->
   <section id="gallery" aria-label="Galerije radova">
     <div style="max-width:1100px; margin:0 auto 4rem; text-align:center;" class="reveal">
       <p class="section-eyebrow">Galerije</p>
       <h2 class="section-title">Istražite naše <em>galerije</em></h2>
     </div>
 
-    <!-- kartice - TODO dodati vlastite slike-->
+    <!-- kartice -->
     <div class="gal-stage reveal" role="region" aria-label="Galerija kartica">
 
-      <
       <div class="gal-card pos-center" tabindex="0" role="button"
-           data-href="galerije/ivana-marko.html"
-           aria-label="Otvori galeriju: Ivana & Marko vjenčanje">
-        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=700&q=80"
-             alt="Ivana i Marko na vjenčanom danu" loading="lazy" />
+           data-href="galerije/ana-matija.html"
+           aria-label="Otvori galeriju: Ana & Matija vjenčanje">
+        <img src="galerije/slike/ana-matija/02.jpg"
+             alt="Ana i Matija — vjenčanje" loading="lazy" />
         <div class="gal-card-inner"></div>
         <div class="gal-card-content">
-          <span class="gal-card-cat">Vjenčanje · 2024</span>
-          <h3 class="gal-card-title">Ivana<br />&amp; Marko</h3>
-          <p class="gal-card-sub">Valpovo · 54 fotografije</p>
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Ana<br />&amp; Matija</h3>
+          <p class="gal-card-sub">38 fotografija</p>
           <div class="gal-card-cta">
             Otvori galeriju
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -921,17 +921,16 @@
         </div>
       </div>
 
-      
       <div class="gal-card pos-right" tabindex="0" role="button"
-           data-href="galerije/portreti.html"
-           aria-label="Otvori galeriju: Studio portreti">
-        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&q=80"
-             alt="Elegantni ženski portret" loading="lazy" />
+           data-href="galerije/antonia-marko.html"
+           aria-label="Otvori galeriju: Antonia & Marko vjenčanje">
+        <img src="galerije/slike/antonia-marko/19.jpg"
+             alt="Antonia i Marko — vjenčanje" loading="lazy" />
         <div class="gal-card-inner"></div>
         <div class="gal-card-content">
-          <span class="gal-card-cat">Portreti · Studio</span>
-          <h3 class="gal-card-title">Studio<br />portreti</h3>
-          <p class="gal-card-sub">Valpovo · 38 fotografija</p>
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Antonia<br />&amp; Marko</h3>
+          <p class="gal-card-sub">34 fotografija</p>
           <div class="gal-card-cta">
             Otvori galeriju
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -939,17 +938,16 @@
         </div>
       </div>
 
-     
       <div class="gal-card pos-hidden-right" tabindex="0" role="button"
-           data-href="galerije/ana-luka.html"
-           aria-label="Otvori galeriju: Ana & Luka vjenčanje">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700&q=80"
-             alt="Ana i Luka vjenčanje" loading="lazy" />
+           data-href="galerije/barbara-filip.html"
+           aria-label="Otvori galeriju: Barbara & Filip vjenčanje">
+        <img src="galerije/slike/barbara-filip/34.jpg"
+             alt="Barbara i Filip — vjenčanje" loading="lazy" />
         <div class="gal-card-inner"></div>
         <div class="gal-card-content">
-          <span class="gal-card-cat">Vjenčanje · 2023</span>
-          <h3 class="gal-card-title">Ana<br />&amp; Luka</h3>
-          <p class="gal-card-sub">Osijek · 61 fotografija</p>
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Barbara<br />&amp; Filip</h3>
+          <p class="gal-card-sub">37 fotografija</p>
           <div class="gal-card-cta">
             Otvori galeriju
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -957,17 +955,16 @@
         </div>
       </div>
 
-      
       <div class="gal-card pos-hidden-left" tabindex="0" role="button"
-           data-href="galerije/dogadaji.html"
-           aria-label="Otvori galeriju: Posebni događaji">
-        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80"
-             alt="Svečani događaj s gostima" loading="lazy" />
+           data-href="galerije/ivana-ivan.html"
+           aria-label="Otvori galeriju: Ivana & Ivan vjenčanje">
+        <img src="galerije/slike/ivana-ivan/14.jpg"
+             alt="Ivana i Ivan — vjenčanje" loading="lazy" />
         <div class="gal-card-inner"></div>
         <div class="gal-card-content">
-          <span class="gal-card-cat">Događaji · 2024</span>
-          <h3 class="gal-card-title">Posebni<br />trenuci</h3>
-          <p class="gal-card-sub">Valpovo · 47 fotografija</p>
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Ivana<br />&amp; Ivan</h3>
+          <p class="gal-card-sub">53 fotografija</p>
           <div class="gal-card-cta">
             Otvori galeriju
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -975,17 +972,84 @@
         </div>
       </div>
 
-      
       <div class="gal-card pos-left" tabindex="0" role="button"
-           data-href="galerije/obitelj.html"
-           aria-label="Otvori galeriju: Obiteljski portreti">
-        <img src="https://images.unsplash.com/photo-1559628233-100c798642d2?w=700&q=80"
-             alt="Obiteljski portret u prirodi" loading="lazy" />
+           data-href="galerije/ivana-zeljko.html"
+           aria-label="Otvori galeriju: Ivana & Željko vjenčanje">
+        <img src="galerije/slike/ivana-zeljko/31.jpg"
+             alt="Ivana i Željko — vjenčanje" loading="lazy" />
         <div class="gal-card-inner"></div>
         <div class="gal-card-content">
-          <span class="gal-card-cat">Obitelj · Studio</span>
-          <h3 class="gal-card-title">Obiteljski<br />portreti</h3>
-          <p class="gal-card-sub">Valpovo · 29 fotografija</p>
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Ivana<br />&amp; Željko</h3>
+          <p class="gal-card-sub">134 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="gal-card pos-hidden-right" tabindex="0" role="button"
+           data-href="galerije/kristiana-miroslav.html"
+           aria-label="Otvori galeriju: Kristiana & Miroslav vjenčanje">
+        <img src="galerije/slike/kristiana-miroslav/39.jpg"
+             alt="Kristiana i Miroslav — vjenčanje" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Kristiana<br />&amp; Miroslav</h3>
+          <p class="gal-card-sub">44 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="gal-card pos-hidden-right" tabindex="0" role="button"
+           data-href="galerije/lucija-antonijo.html"
+           aria-label="Otvori galeriju: Lucija & Antonijo vjenčanje">
+        <img src="galerije/slike/lucija-antonijo/42.jpg"
+             alt="Lucija i Antonijo — vjenčanje" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Lucija<br />&amp; Antonijo</h3>
+          <p class="gal-card-sub">49 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="gal-card pos-hidden-right" tabindex="0" role="button"
+           data-href="galerije/marina-josip.html"
+           aria-label="Otvori galeriju: Marina & Josip vjenčanje">
+        <img src="galerije/slike/marina-josip/35.jpg"
+             alt="Marina i Josip — vjenčanje" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Marina<br />&amp; Josip</h3>
+          <p class="gal-card-sub">52 fotografija</p>
+          <div class="gal-card-cta">
+            Otvori galeriju
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="gal-card pos-hidden-right" tabindex="0" role="button"
+           data-href="galerije/stela-josip.html"
+           aria-label="Otvori galeriju: Stela & Josip vjenčanje">
+        <img src="galerije/slike/stela-josip/80.jpg"
+             alt="Stela i Josip — vjenčanje" loading="lazy" />
+        <div class="gal-card-inner"></div>
+        <div class="gal-card-content">
+          <span class="gal-card-cat">Vjenčanje</span>
+          <h3 class="gal-card-title">Stela<br />&amp; Josip</h3>
+          <p class="gal-card-sub">81 fotografija</p>
           <div class="gal-card-cta">
             Otvori galeriju
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1007,7 +1071,6 @@
     </div>
   </section>
 
-  <!--  Recenzije(TODO: Azurirati sa pravim recenzijama s googlea)  -->
   <section id="testimonials" aria-label="Recenzije klijenata">
     <div style="max-width:900px; margin:0 auto 3.5rem; text-align:center;" class="reveal">
       <p class="section-eyebrow">Recenzije</p>
@@ -1017,24 +1080,25 @@
     <div class="testimonials-inner">
       <div class="testimonial reveal reveal-delay-1">
         <p class="testimonial-text">
-          "Anita je uspjela uhvatiti svaki dragocjeni trenutak našeg vjenčanja.
-          Fotografije su toliko lijepe da nam je teško odabrati favorite. Apsolutno preporučujemo!"
+          Draga Anita Arambašić ( Foto Anita )
+          Hvala na nenametljivosti, dobrim idejama za slike, živcima za rad sa jednom trudnicom, na svakom trenutku koji ste uhvatili spontano i one za koje ste nam navigirali (slikanje čitaj parkiranje na pravo mjesto😂)
+
+          Veliko hvala na uspomenama koje ćemo gledati još godinama!!
+
         </p>
-        <div class="testimonial-author">Marija & Tomislav — Osijek</div>
+        <div class="testimonial-author">Google recenzije</div>
       </div>
       <div class="testimonial reveal reveal-delay-2">
         <p class="testimonial-text">
-          "Fotografirali smo obiteljski portret za Božić. Ozračje je bilo opušteno,
-          a rezultati su nevjerojatni. Djeca su se osjećala ugodno od prve sekunde."
+          Najbolji, toliko dragi i profesionalni, nenametljivi, ma odlicni ljudi. Uvijek spremni na dogovor i zahtjeve. Prezadovoljni smo i veliko HVALA na svemu 🫶🏻
         </p>
-        <div class="testimonial-author">Obitelj Horvat — Valpovo</div>
+        <div class="testimonial-author">Google recenzije</div>
       </div>
       <div class="testimonial reveal reveal-delay-3">
         <p class="testimonial-text">
-          "Produktne fotografije za naš webshop podigle su prodaju za vidljiv postotak.
-          Profesionalan pristup, brza dostava, odlična komunikacija."
+          Odlična usluga, prekrasno izrađen book od svadbe, savršeno uhvaćeni trenutci fotoaparatom vide se iskrene emocije uzvanika i mladenaca
         </p>
-        <div class="testimonial-author">Ana Kovač — Đakovo</div>
+        <div class="testimonial-author">Google recenzije</div>
       </div>
     </div>
   </section>
@@ -1173,7 +1237,7 @@
               display:none;
               font-family:'Cormorant Infant',serif; font-style:italic;
               color:#C9776F; font-size:1rem;">
-              Slanje nije uspjelo. Pokušajte ponovno ili nas kontaktirajte izravno na info@fotoanita.hr.
+              Slanje nije uspjelo. Pokušajte ponovno ili nas kontaktirajte izravno na foto.anita96@gmail.com.
             </div>
           </div>
         </form>
@@ -1244,11 +1308,14 @@
       const n = cards.length;
       let cur = 0;
 
-      const POS = ['pos-center','pos-right','pos-hidden-right','pos-hidden-left','pos-left'];
-
       function posOf(i) {
-        const off = (i - cur + n) % n;
-        return POS[off] !== undefined ? POS[off] : 'pos-hidden-right';
+        // predznačeni pomak: -n/2..+n/2 tako da kartice ulaze/izlaze na ispravnu stranu
+        let d = (i - cur + n) % n;
+        if (d > n / 2) d -= n;
+        if (d === 0)  return 'pos-center';
+        if (d === 1)  return 'pos-right';
+        if (d === -1) return 'pos-left';
+        return d > 0 ? 'pos-hidden-right' : 'pos-hidden-left';
       }
 
       function refresh() {
@@ -1293,6 +1360,9 @@
         dotsEl.appendChild(d);
       });
 
+      // Postavi početni raspored kartica (radi za bilo koji broj kartica)
+      refresh();
+
       // Arrow keys — samo kad je galerija u viewportu i kad se ne tipka u formi
       const galSection = document.getElementById('gallery');
       let galInView = false;
@@ -1326,10 +1396,9 @@
     })();
 
     // ── Contact form ──
-    // TODO, napraviti account na formspree i popuniti endpoint da mail radi, u medjuvremenu otvorit ce se default mail aplikacija na klijentovom racunalu/mobu
-    //ne znam treba li to biti env varijabla radi sigurnosti
-    const FORMSPREE_ENDPOINT = '';
-    const CONTACT_EMAIL = 'foto.anita95@gmail.com';
+    // Ako je endpoint prazan, forma se vraća na otvaranje mail aplikacije preko mailto.
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjepzeq';
+    const CONTACT_EMAIL = 'foto.anita96@gmail.com';
 
     const form      = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');

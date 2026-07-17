@@ -1,0 +1,9 @@
+# Originalne fotografije (5.8GB) — ostaju samo lokalno.
+# Na webu se koriste optimizirane verzije u galerije/slike/
+Slike za Web/
+
+# Node
+node_modules/
+
+# Lokalne Claude Code postavke
+.claude/
