@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Predlozak galerije nije za indeksiranje
+Disallow: /galerije/_template.html
+
+Sitemap: https://foto-anita.com/sitemap.xml

@@ -1,0 +1,46 @@
+# ============================================================
+#  Foto Anita — .htaccess
+#  Preusmjeravanja sa stare WordPress stranice + osnovni SEO
+# ============================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- 1) Prisili HTTPS ----------------------------------------------
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # --- 2) Stare WordPress stranice -> sekcije nove stranice ----------
+  #  PROVJERI slugove: upisi ovdje TOCNE stare URL-ove (bez domene)
+  #  koji se pojavljuju u Google rezultatima.
+  RewriteRule ^o-nama/?$         /#about         [R=301,L,NC]
+  RewriteRule ^onama/?$          /#about         [R=301,L,NC]
+  RewriteRule ^usluge/?$         /#services      [R=301,L,NC]
+  RewriteRule ^galerija/?$       /#gallery       [R=301,L,NC]
+  RewriteRule ^galerije/?$       /#gallery       [R=301,L,NC]
+  RewriteRule ^recenzije/?$      /#testimonials  [R=301,L,NC]
+  RewriteRule ^kontakt/?$        /#contact       [R=301,L,NC]
+
+  # --- 3) Sve ostale stare WP putanje (koje vise ne postoje) --------
+  #  Preusmjeri na pocetnu. Preskace stvarne datoteke i mape nove
+  #  stranice (index.html, galerije/, slike, css...), pa se one
+  #  normalno posluzuju.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ / [R=301,L]
+</IfModule>
+
+# --- 4) Blokiraj indeksiranje starih WP putanja ako jos "vise" -----
+#  (nije nuzno jer ih 301 vec preusmjerava, ali ne skodi)
+
+# --- 5) Osnovno predmemoriranje statickih datoteka (brzina/SEO) ----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg        "access plus 1 year"
+  ExpiresByType image/png         "access plus 1 year"
+  ExpiresByType image/webp        "access plus 1 year"
+  ExpiresByType image/svg+xml     "access plus 1 year"
+  ExpiresByType text/css          "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html         "access plus 1 day"
+</IfModule>
