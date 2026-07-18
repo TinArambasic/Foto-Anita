@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon (svijetli / tamni tab + Apple) -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/transparent-black-192.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/dark-192.png" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/dark-192.png" />
+  <link rel="apple-touch-icon" href="/dark-192.png" />
+
+  <title>Video — Vjenčani filmovi | Foto Anita Valpovo</title>
+  <meta name="description" content="Video radovi studija Foto Anita iz Valpova — vjenčani filmovi i snimke posebnih trenutaka." />
+  <link rel="canonical" href="https://foto-anita.com/video.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Foto Anita" />
+  <meta property="og:url" content="https://foto-anita.com/video.html" />
+  <meta property="og:title" content="Videi — Vjenčani filmovi | Foto Anita" />
+  <meta property="og:description" content="Video radovi studija Foto Anita iz Valpova — vjenčani filmovi i snimke posebnih trenutaka." />
+  <meta property="og:image" content="https://foto-anita.com/galerije/slike/kristiana-miroslav/15.jpg" />
+  <meta property="og:locale" content="hr_HR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Videi — Vjenčani filmovi | Foto Anita" />
+  <meta name="twitter:description" content="Video radovi studija Foto Anita iz Valpova." />
+  <meta name="twitter:image" content="https://foto-anita.com/galerije/slike/kristiana-miroslav/15.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;1,300&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0C0A09; color: #F5EFE6; font-family: 'Jost', sans-serif; font-weight: 300; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 3px; }
+    ::selection { background: rgba(201,169,110,.35); }
+
+    /* Back bar */
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      padding: 1.1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(12,10,9,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,169,110,.15);
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+      color: #C9A96E; text-decoration: none;
+      transition: color .2s;
+    }
+    .back-link:hover { color: #DEC99A; }
+    .brand {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.7rem; color: #C9A96E;
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .vid-hero {
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #171412, #0C0A09);
+    }
+    .vid-eyebrow {
+      font-size: .68rem; letter-spacing: .3em; text-transform: uppercase;
+      color: #C9A96E; margin-bottom: 1rem;
+    }
+    .vid-title {
+      font-family: 'Cormorant Infant', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 300; line-height: 1.1; color: #F5EFE6;
+      margin-bottom: .6rem;
+    }
+    .vid-title em { font-style: italic; color: #C9A96E; }
+    .vid-meta {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.05rem; color: #A89888; font-style: italic;
+    }
+
+    /* Grid */
+    .video-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .video-card { display: flex; flex-direction: column; }
+
+    /* Facade — ucitava YouTube tek na klik (brze i bez kolacica do klika) */
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #171412;
+      border: 1px solid rgba(201,169,110,.18);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .video-frame img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: sepia(12%) saturate(.9) contrast(1.05) brightness(.85);
+      transition: filter .4s, transform .6s cubic-bezier(.34,1.08,.64,1);
+    }
+    .video-frame:hover img { filter: none; transform: scale(1.04); }
+    .video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    .play-btn {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(12,10,9,.25);
+      border: none; cursor: pointer;
+      transition: background .3s;
+    }
+    .video-frame:hover .play-btn { background: rgba(12,10,9,.1); }
+    .play-btn span {
+      width: 66px; height: 66px; border-radius: 50%;
+      background: rgba(201,169,110,.92);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .3s, background .3s;
+    }
+    .video-frame:hover .play-btn span { transform: scale(1.1); background: #DEC99A; }
+    .play-btn svg { margin-left: 4px; color: #0C0A09; }
+
+    .video-info { padding: 1.2rem .2rem 0; }
+    .video-name {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.7rem; font-weight: 300; color: #F5EFE6;
+      line-height: 1.15; margin-bottom: .35rem;
+    }
+    .video-name em { font-style: italic; color: #C9A96E; }
+    .video-sub {
+      font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+      color: #A89888;
+    }
+
+    /* Prazno stanje */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      border: 1px dashed rgba(201,169,110,.25);
+    }
+    .empty-state p {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.4rem; font-style: italic; color: #A89888;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(201,169,110,.15);
+      padding: 3rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.2rem;
+    }
+    .footer-brand {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.9rem; color: #C9A96E;
+    }
+    .footer-copy { font-size: .7rem; letter-spacing: .08em; color: #4A4440; }
+    footer nav { display: flex; gap: 1.8rem; }
+    footer nav a {
+      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+      color: #4A4440; text-decoration: none; transition: color .2s;
+    }
+    footer nav a:hover { color: #C9A96E; }
+
+    @media (max-width: 768px) {
+      .topbar { padding: 1rem 1.2rem; }
+      .brand { font-size: 1.4rem; }
+      .vid-hero { padding: 4rem 1.2rem 3rem; }
+      .video-grid {
+        padding: 2.5rem 1.2rem 4rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .play-btn span { width: 56px; height: 56px; }
+      .video-name { font-size: 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 12H5M12 19l-7-7 7-7"/></svg>
+      Natrag
+    </a>
+    <a href="index.html" class="brand">Foto Anita</a>
+    <a href="index.html#contact" style="font-family:'Jost',sans-serif; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:#0C0A09; background:#C9A96E; padding:.55rem 1.2rem; text-decoration:none; cursor:pointer; transition:background .25s;" onmouseover="this.style.background='#DEC99A'" onmouseout="this.style.background='#C9A96E'">Rezerviraj</a>
+  </header>
+
+  <div class="vid-hero">
+    <p class="vid-eyebrow">Video</p>
+    <h1 class="vid-title">Naši <em>video radovi</em></h1>
+    <p class="vid-meta">Trenuci koji se pamte — u pokretu</p>
+  </div>
+
+  <main class="video-grid" id="video-grid" aria-label="Popis videa"></main>
+
+  <footer role="contentinfo">
+    <div class="footer-brand">Foto Anita</div>
+    <p class="footer-copy">&copy; <span id="copy-year">2025</span> Foto Anita, Valpovo · Sva prava pridržana</p>
+    <nav aria-label="Footer navigacija">
+      <a href="index.html#about">O nama</a>
+      <a href="index.html#gallery">Galerija</a>
+      <a href="index.html#contact">Kontakt</a>
+    </nav>
+  </footer>
+
+  <script>
+    /* ==========================================================
+       VIDEI — ovdje se dodaju YouTube videi.
+       Za svaki video treba samo ID iz YouTube linka:
+         https://www.youtube.com/watch?v=ABC123xyz   ->  id: 'ABC123xyz'
+         https://youtu.be/ABC123xyz                  ->  id: 'ABC123xyz'
+       ========================================================== */
+    const VIDEOS = [
+      { id: 'gariKAfqOlA', name: 'Anita & Miroslav', sub: 'Love story' },
+      { id: 'HSUat5m0xgo', name: 'Ivana & Ivan',     sub: 'Love story' },
+      { id: 'KS0MrGED-IM', name: 'Ivana & Željko',   sub: 'Love story' },
+      { id: 'lZD6-Pb9sSM', name: 'Ema & Josip',      sub: 'Love story' },
+      { id: 'yXaOcnJHxQA', name: 'Kristiana & Miroslav', sub: 'Love story' },
+      { id: 'CBLOAI1mY6Q', name: 'Barbara & Filip',      sub: 'Love story' },
+    ];
+
+    const grid = document.getElementById('video-grid');
+
+    if (VIDEOS.length === 0) {
+      grid.innerHTML =
+        '<div class="empty-state"><p>Video uskoro — u pripremi.</p></div>';
+    } else {
+      VIDEOS.forEach(v => {
+        const card = document.createElement('article');
+        card.className = 'video-card';
+        // zlatni "&" u naslovu (kao na galerijama); alt/aria ostaju cisti tekst
+        const nameHtml = v.name.replace(/&/g, '<em>&amp;</em>');
+        card.innerHTML = `
+          <div class="video-frame" data-id="${v.id}">
+            <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg"
+                 onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"
+                 alt="${v.name} — video" loading="lazy" />
+            <button class="play-btn" aria-label="Pokreni video: ${v.name}">
+              <span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div class="video-info">
+            <h2 class="video-name">${nameHtml}</h2>
+            ${v.sub ? `<p class="video-sub">${v.sub}</p>` : ''}
+          </div>`;
+        grid.appendChild(card);
+      });
+
+      // Klik -> zamijeni slicicu pravim YouTube playerom
+      grid.querySelectorAll('.video-frame').forEach(frame => {
+        frame.addEventListener('click', () => {
+          const id = frame.dataset.id;
+          frame.innerHTML =
+            `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0"
+                     title="YouTube video player" frameborder="0"
+                     referrerpolicy="strict-origin-when-cross-origin"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                     allowfullscreen></iframe>`;
+        });
+      });
+    }
+
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

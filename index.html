@@ -127,6 +127,105 @@
     .nav-link:hover { color: #DEC99A; }
     .nav-link:hover::after { width: 100%; }
 
+    /* Dropdown — galerije po mladencima */
+    .nav-item { position: relative; display: flex; align-items: center; }
+    .nav-item > .nav-link::before {
+      content: '';
+      display: inline-block;
+      width: 0; height: 0;
+      margin-right: .4rem;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 4px solid currentColor;
+      vertical-align: middle;
+      transition: transform .28s ease;
+    }
+    .nav-item:hover > .nav-link::before,
+    .nav-item:focus-within > .nav-link::before { transform: rotate(180deg); }
+
+    .nav-dropdown {
+      position: absolute; top: 100%; left: 50%;
+      margin-top: 1.4rem;
+      min-width: 220px;
+      background: rgba(12,10,9,.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(201,169,110,.2);
+      padding: .6rem 0;
+      display: flex; flex-direction: column;
+      opacity: 0; visibility: hidden;
+      transform: translateX(-50%) translateY(-8px);
+      /* mala odgoda pri zatvaranju — guta slucajne prelaske kursora */
+      transition: opacity .24s ease .12s, transform .24s ease .12s, visibility .24s .12s;
+      z-index: 60;
+    }
+    /* Nevidljivi "most" preko razmaka, da hover ne pukne dok mis putuje
+       do panela. Visina MORA biti tocno jednaka margin-top iznad (1.4rem),
+       inace most viri u red navigacije i hvata susjedne linkove. */
+    .nav-dropdown::before {
+      content: '';
+      position: absolute; top: -1.4rem; left: 0; right: 0; height: 1.4rem;
+    }
+    .nav-item:hover .nav-dropdown,
+    .nav-item:focus-within .nav-dropdown {
+      opacity: 1; visibility: visible;
+      transform: translateX(-50%) translateY(0);
+      transition-delay: 0s;   /* otvara se odmah, zatvara s odgodom */
+    }
+    .nav-dropdown a {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem; letter-spacing: .1em;
+      color: #A89888; text-decoration: none;
+      padding: .55rem 1.4rem;
+      white-space: nowrap;
+      transition: color .2s, background .2s, padding-left .2s;
+    }
+    .nav-dropdown a:hover {
+      color: #F5EFE6;
+      background: rgba(201,169,110,.08);
+      padding-left: 1.75rem;
+    }
+    .nav-dropdown .dropdown-all {
+      margin-top: .45rem; padding-top: .7rem;
+      border-top: 1px solid rgba(201,169,110,.15);
+      color: #C9A96E;
+      text-transform: uppercase;
+      font-size: .63rem; letter-spacing: .2em;
+    }
+
+    /* Mobilni podizbornik */
+    .mobile-sub-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; background: none; border: none; padding: 0;
+      cursor: pointer; text-align: left;
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.5rem; font-weight: 300;
+      color: #F5EFE6; letter-spacing: .04em;
+      transition: color .25s;
+    }
+    .mobile-sub-toggle:hover { color: #C9A96E; }
+    .mobile-sub-toggle svg { flex-shrink: 0; color: #C9A96E; transition: transform .3s ease; }
+    .mobile-sub-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .mobile-sub {
+      max-height: 0; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: max-height .38s ease, margin-top .38s ease;
+      border-left: 1px solid rgba(201,169,110,.2);
+      margin-left: .2rem; margin-top: 0;
+    }
+    .mobile-sub.open { max-height: 560px; margin-top: .9rem; }
+    #mobile-menu .mobile-sub a {
+      font-size: 1.05rem;
+      color: #A89888;
+      padding: .42rem 0 .42rem 1rem;
+    }
+    #mobile-menu .mobile-sub a:hover { color: #C9A96E; }
+    #mobile-menu .mobile-sub a.dropdown-all {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+      color: #C9A96E; margin-top: .4rem;
+    }
+
     /* navigacija za responzivnost */
     #nav-toggle {
       display: none;
@@ -791,7 +890,24 @@
     <div class="nav-links" style="display:flex; gap:2.5rem;" role="list">
       <a href="#about"        class="nav-link" role="listitem">O nama</a>
       <a href="#services"     class="nav-link" role="listitem">Usluge</a>
-      <a href="#gallery"      class="nav-link" role="listitem">Galerija</a>
+
+      <div class="nav-item" role="listitem">
+        <a href="#gallery" class="nav-link" aria-haspopup="true">Galerija</a>
+        <div class="nav-dropdown" aria-label="Galerije po mladencima">
+          <a href="galerije/ana-matija.html">Ana &amp; Matija</a>
+          <a href="galerije/antonia-marko.html">Antonia &amp; Marko</a>
+          <a href="galerije/barbara-filip.html">Barbara &amp; Filip</a>
+          <a href="galerije/ivana-ivan.html">Ivana &amp; Ivan</a>
+          <a href="galerije/ivana-zeljko.html">Ivana &amp; Željko</a>
+          <a href="galerije/kristiana-miroslav.html">Kristiana &amp; Miroslav</a>
+          <a href="galerije/lucija-antonijo.html">Lucija &amp; Antonijo</a>
+          <a href="galerije/marina-josip.html">Marina &amp; Josip</a>
+          <a href="galerije/stela-josip.html">Stela &amp; Josip</a>
+          <a href="#gallery" class="dropdown-all">Sve galerije</a>
+        </div>
+      </div>
+
+      <a href="video.html"    class="nav-link" role="listitem">video</a>
       <a href="#testimonials" class="nav-link" role="listitem">Recenzije</a>
       <a href="#contact"      class="nav-link" role="listitem">Kontakt</a>
     </div>
@@ -815,7 +931,29 @@
   <div id="mobile-menu" aria-label="Mobilna navigacija">
     <a href="#about">O nama</a>
     <a href="#services">Usluge</a>
-    <a href="#gallery">Galerija</a>
+
+    <div>
+      <button class="mobile-sub-toggle" aria-expanded="false" aria-controls="mobile-gallery-sub">
+        Galerija
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </button>
+      <div class="mobile-sub" id="mobile-gallery-sub">
+        <a href="galerije/ana-matija.html">Ana &amp; Matija</a>
+        <a href="galerije/antonia-marko.html">Antonia &amp; Marko</a>
+        <a href="galerije/barbara-filip.html">Barbara &amp; Filip</a>
+        <a href="galerije/ivana-ivan.html">Ivana &amp; Ivan</a>
+        <a href="galerije/ivana-zeljko.html">Ivana &amp; Željko</a>
+        <a href="galerije/kristiana-miroslav.html">Kristiana &amp; Miroslav</a>
+        <a href="galerije/lucija-antonijo.html">Lucija &amp; Antonijo</a>
+        <a href="galerije/marina-josip.html">Marina &amp; Josip</a>
+        <a href="galerije/stela-josip.html">Stela &amp; Josip</a>
+        <a href="#gallery" class="dropdown-all">Sve galerije</a>
+      </div>
+    </div>
+
+    <a href="video.html">video</a>
     <a href="#testimonials">Recenzije</a>
     <a href="#contact">Kontakt</a>
     <a href="#contact" style="color:#C9A96E; font-family:'Jost',sans-serif; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;">Rezerviraj termin →</a>
@@ -1305,6 +1443,8 @@
          onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#4A4440'">O nama</a>
       <a href="#gallery" style="font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#4A4440; text-decoration:none; transition:color .2s; cursor:pointer;"
          onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#4A4440'">Galerija</a>
+      <a href="video.html" style="font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#4A4440; text-decoration:none; transition:color .2s; cursor:pointer;"
+         onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#4A4440'">video</a>
       <a href="#contact" style="font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#4A4440; text-decoration:none; transition:color .2s; cursor:pointer;"
          onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#4A4440'">Kontakt</a>
     </nav>
@@ -1328,6 +1468,16 @@
       navToggle.setAttribute('aria-expanded', open);
       navToggle.setAttribute('aria-label', open ? 'Zatvori izbornik' : 'Otvori izbornik');
     });
+    // Sklopivi podizbornik galerija (mobilno)
+    const subToggle = mobileMenu.querySelector('.mobile-sub-toggle');
+    const subMenu   = document.getElementById('mobile-gallery-sub');
+    if (subToggle && subMenu) {
+      subToggle.addEventListener('click', () => {
+        const open = subMenu.classList.toggle('open');
+        subToggle.setAttribute('aria-expanded', open);
+      });
+    }
+
     // Zatvori meni nakon klika na link
     mobileMenu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
