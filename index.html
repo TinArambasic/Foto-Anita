@@ -81,6 +81,7 @@
       font-family: 'Jost', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
+      color-scheme: dark;
     }
 
     
@@ -444,12 +445,17 @@
     /* servisi */
     #services { background: #0C0A09; }
     .services-grid {
-      max-width: 920px; margin: 3rem auto 0;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 3.5px;
     }
+    /* Visina se vodi omjerom, ne fiksnim px — kartice ostaju
+       proporcionalne na svakoj sirini ekrana. Zeliš li ih vise/nize,
+       mijenjaj samo aspect-ratio (2/3 je vise, 3/4 je nize). */
     .service-card {
+      display: block; text-decoration: none;
       position: relative; overflow: hidden;
-      aspect-ratio: 3/4; cursor: pointer;
+      aspect-ratio: 2/3; cursor: pointer;
       background: #221E1A;
     }
     .service-card img {
@@ -491,24 +497,35 @@
       opacity: 0;
     }
     .service-card:hover .service-desc {
-      max-height: 60px; opacity: 1;
+      max-height: 80px; opacity: 1;
     }
+    .service-more {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
+      color: #C9A96E; margin-top: .9rem;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height .5s ease, opacity .4s, gap .3s;
+    }
+    .service-card:hover .service-more {
+      max-height: 24px; opacity: 1;
+    }
+    .service-card:hover .service-more { gap: .7rem; }
 
     /* kartice u sekciji galerije*/
     #gallery { background: #171412; padding-bottom: 6rem; }
 
     .gal-stage {
       position: relative;
-      height: 480px;
-      max-width: 1100px;
+      height: 600px;
+      max-width: 1280px;
       margin: 0 auto;
       display: flex; align-items: center; justify-content: center;
     }
 
     .gal-card {
       position: absolute;
-      width: 290px; height: 410px;
-      border-radius: 22px;
+      width: 370px; height: 520px;
+      border-radius: 24px;
       overflow: hidden;
       cursor: pointer;
       background-size: cover;
@@ -545,7 +562,7 @@
     }
     .gal-card-title {
       font-family: 'Cormorant Infant', serif;
-      font-size: 1.9rem; font-weight: 300; line-height: 1.1;
+      font-size: 2.3rem; font-weight: 300; line-height: 1.1;
       color: #F5EFE6; margin-bottom: .3rem;
     }
     .gal-card-sub {
@@ -572,24 +589,24 @@
       box-shadow: 0 44px 110px rgba(0,0,0,.75), 0 0 0 1px rgba(201,169,110,.28);
     }
     .gal-card.pos-left {
-      transform: translate(calc(-50% - 250px), -50%) rotate(0deg) scale(0.86);
+      transform: translate(calc(-50% - 320px), -50%) rotate(0deg) scale(0.86);
       left: 50%; top: 50%;
       z-index: 5; opacity: .82;
       box-shadow: 0 20px 55px rgba(0,0,0,.55);
     }
     .gal-card.pos-right {
-      transform: translate(calc(-50% + 250px), -50%) rotate(0deg) scale(0.86);
+      transform: translate(calc(-50% + 320px), -50%) rotate(0deg) scale(0.86);
       left: 50%; top: 50%;
       z-index: 5; opacity: .82;
       box-shadow: 0 20px 55px rgba(0,0,0,.55);
     }
     .gal-card.pos-hidden-left {
-      transform: translate(calc(-50% - 520px), -50%) rotate(0deg) scale(0.7);
+      transform: translate(calc(-50% - 670px), -50%) rotate(0deg) scale(0.7);
       left: 50%; top: 50%;
       z-index: 1; opacity: 0; pointer-events: none;
     }
     .gal-card.pos-hidden-right {
-      transform: translate(calc(-50% + 520px), -50%) rotate(0deg) scale(0.7);
+      transform: translate(calc(-50% + 670px), -50%) rotate(0deg) scale(0.7);
       left: 50%; top: 50%;
       z-index: 1; opacity: 0; pointer-events: none;
     }
@@ -620,6 +637,15 @@
     }
     .gal-dot.active { background: #C9A96E; transform: scale(1.5); }
 
+    /* Manji laptopi / tableti — medukorak izmedu punog desktopa i mobilnog,
+       da bocne kartice ne budu odsjecene rubom zaslona. */
+    @media (max-width: 1100px) {
+      .gal-stage { height: 540px; }
+      .gal-card { width: 320px; height: 450px; }
+      .gal-card-title { font-size: 2rem; }
+      .gal-card.pos-left  { transform: translate(calc(-50% - 275px), -50%) rotate(0deg) scale(0.86); }
+      .gal-card.pos-right { transform: translate(calc(-50% + 275px), -50%) rotate(0deg) scale(0.86); }
+    }
     @media (max-width: 768px) {
       .gal-stage { height: 440px; }
       .gal-card { width: 270px; height: 380px; border-radius: 18px; }
@@ -638,7 +664,72 @@
 
 
     
-    #testimonials { background: #0C0A09; padding: 5rem 2rem; }
+    /*  video sekcija na naslovnici  */
+    #videos { background: #0C0A09; padding-bottom: 6rem; }
+    .vp-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    }
+    .vp-card { display: flex; flex-direction: column; }
+    .vp-frame {
+      position: relative; aspect-ratio: 16/9;
+      background: #221E1A;
+      border: 1px solid rgba(201,169,110,.18);
+      overflow: hidden; cursor: pointer;
+    }
+    .vp-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: sepia(12%) saturate(.9) contrast(1.05) brightness(.85);
+      transition: filter .4s, transform .6s cubic-bezier(.34,1.08,.64,1);
+    }
+    .vp-frame:hover img { filter: none; transform: scale(1.04); }
+    .vp-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .vp-btn {
+      position: absolute; inset: 0;
+      background: transparent; border: none; cursor: pointer; padding: 0;
+    }
+    .vp-btn:focus-visible { outline: 2px solid #C9A96E; outline-offset: -2px; }
+    .vp-badge {
+      position: absolute; right: .8rem; bottom: .8rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(12,10,9,.45);
+      border: 1px solid rgba(245,239,230,.35);
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      transition: background .3s, border-color .3s, transform .3s;
+    }
+    .vp-badge svg { margin-left: 2px; color: #F5EFE6; transition: color .3s; }
+    .vp-frame:hover .vp-badge {
+      background: rgba(201,169,110,.92); border-color: #C9A96E; transform: scale(1.08);
+    }
+    .vp-frame:hover .vp-badge svg { color: #0C0A09; }
+    .vp-name {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.45rem; font-weight: 300; line-height: 1.15;
+      color: #F5EFE6; margin-top: 1rem;
+    }
+    .vp-name em { font-style: italic; color: #C9A96E; }
+    .vp-sub {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: #A89888; margin-top: .25rem;
+    }
+    .vp-cta-wrap { text-align: center; margin-top: 3.5rem; }
+    .vp-cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+      color: #C9A96E; text-decoration: none;
+      border: 1px solid rgba(201,169,110,.4);
+      padding: .85rem 2.2rem;
+      transition: background .25s, color .25s, border-color .25s;
+    }
+    .vp-cta:hover { background: #C9A96E; color: #0C0A09; border-color: #C9A96E; }
+    /* 3 videa -> ide se ravno na 1 stupac, da nema usamljene kartice u redu */
+    @media (max-width: 860px) {
+      .vp-grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+
+    #testimonials { background: #171412; padding: 5rem 2rem; }
     .testimonials-inner {
       max-width: 900px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem;
@@ -663,6 +754,41 @@
     .testimonial-author {
       font-size: .72rem; letter-spacing: .16em;
       text-transform: uppercase; color: #C9A96E;
+    }
+
+    /*  FAQ  */
+    #faq { background: #0C0A09; }
+    .faq-wrap { max-width: 820px; margin: 0 auto; }
+    .faq-head { text-align: center; margin-bottom: 3.5rem; }
+    .faq-head .gold-rule { margin-left: auto; margin-right: auto; }
+    .faq-item {
+      border-bottom: 1px solid rgba(201,169,110,.15);
+    }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+      padding: 1.5rem 0;
+      font-family: 'Cormorant Infant', serif; font-size: 1.25rem; color: #F5EFE6;
+      transition: color .25s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: #C9A96E; }
+    .faq-item summary:focus-visible { outline: 1px solid #C9A96E; outline-offset: 4px; }
+    .faq-icon {
+      flex-shrink: 0; color: #C9A96E;
+      transition: transform .3s ease;
+    }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+    /* omotač koji se animira po visini */
+    .faq-body { overflow: hidden; }
+    .faq-answer {
+      padding: 0 0 1.6rem; max-width: 90%;
+      font-size: .98rem; line-height: 1.85; color: #C4B5A5;
+    }
+    .faq-answer strong { color: #DEC99A; font-weight: 400; }
+    @media (max-width: 560px) {
+      .faq-item summary { font-size: 1.1rem; padding: 1.3rem 0; }
+      .faq-answer { max-width: 100%; font-size: .93rem; }
     }
 
     /*  kontakt  */
@@ -690,6 +816,27 @@
       font-family: 'Cormorant Infant', serif;
       font-size: 1.05rem; color: #C4B5A5; line-height: 1.55;
     }
+    /* izravni kontakt — telefon / whatsapp */
+    .contact-direct { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 2.8rem; }
+    .contact-direct a {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-family: 'Jost', sans-serif; font-weight: 300;
+      font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+      color: #C9A96E; text-decoration: none;
+      border: 1px solid rgba(201,169,110,.35); padding: .85rem 1.6rem;
+      transition: background .25s, border-color .25s, color .25s;
+    }
+    .contact-direct a:hover { background: rgba(201,169,110,.1); border-color: #C9A96E; color: #DEC99A; }
+    .contact-direct svg { flex-shrink: 0; }
+    .contact-direct-note {
+      margin: -1.9rem 0 2.8rem;
+      font-family: 'Cormorant Infant', serif; font-style: italic;
+      font-size: .95rem; color: #7C736A;
+    }
+    /* telefonski brojevi kao linkovi */
+    a.contact-val { display: block; text-decoration: none; transition: color .2s; }
+    a.contact-val:hover { color: #C9A96E; }
+
     .contact-social { display: flex; gap: 1rem; margin-top: 2.5rem; }
     .social-btn {
       width: 40px; height: 40px;
@@ -800,7 +947,7 @@
 
     /*  responzivnost  */
     @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); max-width: 620px; }
       .testimonials-inner { grid-template-columns: 1fr; max-width: 480px; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-img-wrap { max-width: 480px; }
@@ -880,6 +1027,72 @@
     ]
   }
   </script>
+
+  <!-- FAQ za Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Koliko unaprijed trebam rezervirati termin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Za vjenčanja preporučujemo 6 do 12 mjeseci unaprijed — popularni ljetni datumi popune se najranije. Za portrete, događaje i Mirror Photo Booth obično je dovoljno 2 do 4 tjedna."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Koliko koštaju vaše usluge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fotografiranje vjenčanja kreće se od 1.690 do 2.800 €, ovisno o paketu i broju fotografa, uz putni trošak ovisno o lokaciji. Mirror Photo Booth je 400 €. Za portrete i događaje cijena ovisi o trajanju i željama."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Koliko dugo traje fotografiranje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Portretno fotografiranje traje otprilike sat vremena. Mirror Photo Booth je na događaju 4 do 5 sati. Vjenčanja pratimo cijeli dan, od priprema do kasnih sati."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Koliko vas dolazi na vjenčanje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Naš tim broji četiri fotografa, a koliko nas dolazi ovisi o odabranom paketu. Više fotografa znači da su istovremeno pokrivene pripreme mladenke i mladoženje te više kutova tijekom ceremonije i proslave."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Izlazite li izvan Valpova?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da, radimo u cijeloj Hrvatskoj. Za lokacije izvan Valpova i okolice doplaćuje se putni trošak, koji ovisi o udaljenosti."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kada dobivam gotove fotografije?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fotografije s vjenčanja obrađujemo do šest tjedana. Za ostale usluge rok je oko dva tjedna."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Treba li platiti akontaciju?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Akontaciju tražimo samo za vjenčanja — njome se datum rezervira i više ga ne nudimo drugima. Za portrete, događaje i Mirror Photo Booth plaćanje ide nakon obavljene usluge."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -899,7 +1112,7 @@
           <a href="galerije/barbara-filip.html">Barbara &amp; Filip</a>
           <a href="galerije/ivana-ivan.html">Ivana &amp; Ivan</a>
           <a href="galerije/ivana-zeljko.html">Ivana &amp; Željko</a>
-          <a href="galerije/kristiana-miroslav.html">Kristiana &amp; Miroslav</a>
+          <a href="galerije/kristiana-miroslav.html">Kristijana &amp; Miroslav</a>
           <a href="galerije/lucija-antonijo.html">Lucija &amp; Antonijo</a>
           <a href="galerije/marina-josip.html">Marina &amp; Josip</a>
           <a href="galerije/stela-josip.html">Stela &amp; Josip</a>
@@ -907,7 +1120,7 @@
         </div>
       </div>
 
-      <a href="video.html"    class="nav-link" role="listitem">Video</a>
+      <a href="#videos"    class="nav-link" role="listitem">Video</a>
       <a href="#testimonials" class="nav-link" role="listitem">Recenzije</a>
       <a href="#contact"      class="nav-link" role="listitem">Kontakt</a>
     </div>
@@ -945,7 +1158,7 @@
         <a href="galerije/barbara-filip.html">Barbara &amp; Filip</a>
         <a href="galerije/ivana-ivan.html">Ivana &amp; Ivan</a>
         <a href="galerije/ivana-zeljko.html">Ivana &amp; Željko</a>
-        <a href="galerije/kristiana-miroslav.html">Kristiana &amp; Miroslav</a>
+        <a href="galerije/kristiana-miroslav.html">Kristijana &amp; Miroslav</a>
         <a href="galerije/lucija-antonijo.html">Lucija &amp; Antonijo</a>
         <a href="galerije/marina-josip.html">Marina &amp; Josip</a>
         <a href="galerije/stela-josip.html">Stela &amp; Josip</a>
@@ -953,7 +1166,7 @@
       </div>
     </div>
 
-    <a href="video.html">Video</a>
+    <a href="#videos">Video</a>
     <a href="#testimonials">Recenzije</a>
     <a href="#contact">Kontakt</a>
     <a href="#contact" style="color:#C9A96E; font-family:'Jost',sans-serif; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;">Rezerviraj termin →</a>
@@ -1035,7 +1248,7 @@
 
     <div class="services-grid reveal">
       <!-- Portreti -->
-      <div class="service-card" tabindex="0" role="article" aria-label="Portreti">
+      <a class="service-card" href="usluge/portreti.html" aria-label="Portreti — saznaj više">
         <img
           src="galerije/slike/antonia-marko/34.jpg"
           alt="Portret mladenke u toplim tonovima"
@@ -1046,11 +1259,14 @@
           <div class="service-num"></div>
           <div class="service-name">Portreti</div>
           <div class="service-desc">Individualni i obiteljski portreti koji otkrivaju vašu osobnost.</div>
+          <span class="service-more">Saznaj više
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
 
       <!-- Vjenčanja -->
-      <div class="service-card" tabindex="0" role="article" aria-label="Vjenčanja">
+      <a class="service-card" href="usluge/vjencanja.html" aria-label="Vjenčanja — saznaj više">
         <img
           src="galerije/slike/stela-josip/03.jpg"
           alt="Romantičan vjenčani par u zagrljaju"
@@ -1061,11 +1277,14 @@
           <div class="service-num"></div>
           <div class="service-name">Vjenčanja</div>
           <div class="service-desc">Pamtite najsretniji dan svog života kroz svaku emociju.</div>
+          <span class="service-more">Saznaj više
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
 
       <!-- Događaji -->
-      <div class="service-card" tabindex="0" role="article" aria-label="Događaji">
+      <a class="service-card" href="usluge/dogadaji.html" aria-label="Događaji — saznaj više">
         <img
           src="galerije/slike/lucija-antonijo/35.jpg"
           alt="Svečani trenutak s vjenčanja"
@@ -1076,8 +1295,28 @@
           <div class="service-num"></div>
           <div class="service-name">Događaji</div>
           <div class="service-desc">Krštenja, prve pričesti, mature i sve prigode vrijede spomena.</div>
+          <span class="service-more">Saznaj više
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
+      <!-- Mirror PhotoBooth-->
+      <a class="service-card" href="usluge/mirror-photo-booth.html" aria-label="Mirror Photo Booth — saznaj više">
+        <img
+          src="galerije/slike/Mirror/mirror1.webp"
+          alt="Mirror Photo Booth na proslavi"
+          loading="lazy"
+        />
+        <div class="service-card-overlay"></div>
+        <div class="service-card-body">
+          <div class="service-num"></div>
+          <div class="service-name">Mirror Photo Booth</div>
+          <div class="service-desc">Mirror Photo Booth koji vaše događaje pretvori u nezaboravne uspomene</div>
+          <span class="service-more">Saznaj više
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
 
     
     </div>
@@ -1180,13 +1419,13 @@
 
       <div class="gal-card pos-hidden-right" tabindex="0" role="button"
            data-href="galerije/kristiana-miroslav.html"
-           aria-label="Otvori galeriju: Kristiana & Miroslav vjenčanje">
+           aria-label="Otvori galeriju: Kristijana & Miroslav vjenčanje">
         <img src="galerije/slike/kristiana-miroslav/39.jpg"
-             alt="Kristiana i Miroslav — vjenčanje" loading="lazy" />
+             alt="Kristijana i Miroslav — vjenčanje" loading="lazy" />
         <div class="gal-card-inner"></div>
         <div class="gal-card-content">
           <span class="gal-card-cat">Vjenčanje</span>
-          <h3 class="gal-card-title">Kristiana<br />&amp; Miroslav</h3>
+          <h3 class="gal-card-title">Kristijana<br />&amp; Miroslav</h3>
           <p class="gal-card-sub">44 fotografija</p>
           <div class="gal-card-cta">
             Otvori galeriju
@@ -1260,6 +1499,64 @@
     </div>
   </section>
 
+  <!--  VIDEO  -->
+  <section id="videos" aria-label="Video radovi">
+    <div style="max-width:1100px; margin:0 auto 4rem; text-align:center;" class="reveal">
+      <p class="section-eyebrow">Video</p>
+      <h2 class="section-title">Trenuci u <em>pokretu</em></h2>
+    </div>
+
+    <div class="vp-grid reveal">
+
+      <article class="vp-card">
+        <div class="vp-frame" data-id="yXaOcnJHxQA">
+          <img src="https://img.youtube.com/vi/yXaOcnJHxQA/maxresdefault.jpg"
+               alt="Kristijana i Miroslav — love story video" loading="lazy" />
+          <button class="vp-btn" aria-label="Pokreni video: Kristijana i Miroslav">
+            <span class="vp-badge" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+        </div>
+        <h3 class="vp-name">Kristijana <em>&amp;</em> Miroslav</h3>
+      </article>
+
+      <article class="vp-card">
+        <div class="vp-frame" data-id="CBLOAI1mY6Q">
+          <img src="https://img.youtube.com/vi/CBLOAI1mY6Q/maxresdefault.jpg"
+               alt="Barbara i Filip — love story video" loading="lazy" />
+          <button class="vp-btn" aria-label="Pokreni video: Barbara i Filip">
+            <span class="vp-badge" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+        </div>
+        <h3 class="vp-name">Barbara <em>&amp;</em> Filip</h3>
+      </article>
+
+      <article class="vp-card">
+        <div class="vp-frame" data-id="KS0MrGED-IM">
+          <img src="https://img.youtube.com/vi/KS0MrGED-IM/maxresdefault.jpg"
+               alt="Ivana i Željko — love story video" loading="lazy" />
+          <button class="vp-btn" aria-label="Pokreni video: Ivana i Željko">
+            <span class="vp-badge" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+        </div>
+        <h3 class="vp-name">Ivana <em>&amp;</em> Željko</h3>
+      </article>
+
+    </div>
+
+    <div class="vp-cta-wrap reveal">
+      <a href="video.html" class="vp-cta">
+        Vidi više
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
   <section id="testimonials" aria-label="Recenzije klijenata">
     <div style="max-width:900px; margin:0 auto 3.5rem; text-align:center;" class="reveal">
       <p class="section-eyebrow">Recenzije</p>
@@ -1292,6 +1589,118 @@
     </div>
   </section>
 
+  <!--  FAQ  -->
+  <section id="faq" aria-label="Često postavljana pitanja">
+    <div class="faq-wrap">
+      <div class="faq-head reveal">
+        <p class="section-eyebrow">Pitanja</p>
+        <h2 class="section-title">Često postavljana <em>pitanja</em></h2>
+        <div class="gold-rule"></div>
+      </div>
+
+      <details class="faq-item reveal">
+        <summary>
+          Koliko unaprijed trebam rezervirati termin?
+          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-body">
+        <div class="faq-answer">
+          Za vjenčanja preporučujemo <strong>6 do 12 mjeseci unaprijed</strong> — popularni ljetni datumi
+          popune se najranije. Za portrete, događaje i Mirror Photo Booth obično je dovoljno
+          <strong>2 do 4 tjedna</strong>. Ako je vaš termin bliže, svejedno se javite — ponekad imamo slobodan termin.
+        </div>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>
+          Koliko koštaju vaše usluge?
+          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-body">
+        <div class="faq-answer">
+          Fotografiranje vjenčanja kreće se <strong>od 1.690 do 2.800 €</strong>, ovisno o paketu
+          i broju fotografa, uz putni trošak ovisno o lokaciji. Mirror Photo Booth je
+          <strong>400 €</strong>. Za portrete i događaje cijena ovisi o trajanju i željama —
+          javite nam se i poslat ćemo ponudu prilagođenu vama.
+        </div>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>
+          Koliko dugo traje fotografiranje?
+          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-body">
+        <div class="faq-answer">
+          Portretno fotografiranje traje otprilike <strong>sat vremena</strong>. Mirror Photo Booth je
+          na vašem događaju <strong>4 do 5 sati</strong>. Vjenčanja pratimo <strong>cijeli dan</strong> —
+          od priprema do kasnih sati, kako nijedan trenutak ne bi ostao nezabilježen.
+        </div>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>
+          Koliko vas dolazi na vjenčanje?
+          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-body">
+        <div class="faq-answer">
+          Naš tim broji <strong>četiri fotografa</strong>, a koliko nas dolazi ovisi o odabranom paketu.
+          Više fotografa znači da su istovremeno pokrivene pripreme mladenke i mladoženje te
+          više kutova tijekom ceremonije i proslave.
+        </div>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>
+          Izlazite li izvan Valpova?
+          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-body">
+        <div class="faq-answer">
+          Da — radimo <strong>u cijeloj Hrvatskoj</strong>. Za lokacije izvan Valpova i okolice
+          doplaćuje se putni trošak, koji ovisi o udaljenosti. Recite nam gdje je vaš događaj
+          i dobit ćete točan iznos u ponudi.
+        </div>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>
+          Kada dobivam gotove fotografije?
+          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-body">
+        <div class="faq-answer">
+          Fotografije s vjenčanja obrađujemo <strong>do šest tjedana</strong> — obrada cjelodnevnog
+          fotografiranja zahtijeva vrijeme kako bi svaki kadar bio kako treba. Za ostale usluge
+          rok je <strong>oko dva tjedna</strong>.
+        </div>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>
+          Treba li platiti akontaciju?
+          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-body">
+        <div class="faq-answer">
+          Akontaciju tražimo <strong>samo za vjenčanja</strong> — njome se datum rezervira i više ga
+          ne nudimo drugima. Za portrete, događaje i Mirror Photo Booth plaćanje ide nakon
+          obavljene usluge.
+        </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!--  footer  -->
+
   <!--  Kontakt  -->
   <section id="contact" aria-label="Kontakt">
     <div class="contact-grid">
@@ -1303,6 +1712,18 @@
           Svaki projekt je jedinstven. Kontaktirajte nas i zajedno
           ćemo Vam stvoriti vječne uspomene!
         </p>
+
+        <div class="contact-direct">
+          <a href="tel:+385916444492">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92Z"/></svg>
+            091 644 4492
+          </a>
+          <a href="https://wa.me/385916444492?text=Pozdrav%2C%20imam%20upit%20za%20Foto%20Anitu" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.71-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <p class="contact-direct-note">Najbrži odgovor — javljamo se isti dan.</p>
 
         <div class="contact-info-item">
           <div class="contact-icon" aria-hidden="true">
@@ -1324,8 +1745,8 @@
           </div>
           <div>
             <div class="contact-label">Telefon</div>
-            <div class="contact-val">+385 31 650 542</div>
-            <div class="contact-val">+385 91 644 64492</div>
+            <a class="contact-val" href="tel:+38531650542">+385 31 650 542</a>
+            <a class="contact-val" href="tel:+385916444492">+385 91 644 4492</a>
           </div>
         </div>
 
@@ -1337,7 +1758,7 @@
           </div>
           <div>
             <div class="contact-label">E-mail</div>
-            <div class="contact-val">foto.anita96@gmail.com</div>
+            <a class="contact-val" href="mailto:foto.anita96@gmail.com">foto.anita96@gmail.com</a>
           </div>
         </div>
 
@@ -1396,10 +1817,15 @@
               <option value="Portret" style="background:#0C0A09;">Portret</option>
               <option value="Vjenčanje" style="background:#0C0A09;">Vjenčanje</option>
               <option value="Događaj" style="background:#0C0A09;">Događaj</option>
+              <option value="Mirror Photo Booth" style="background:#0C0A09;">Mirror Photo Booth</option>
               <option value="Produkt fotografija" style="background:#0C0A09;">Produkt fotografija</option>
               <option value="Ostalo" style="background:#0C0A09;">Ostalo</option>
             </select>
             <div class="form-error-msg" id="err-service">Odaberite vrstu usluge.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="datum">Datum događaja <span style="text-transform:none; letter-spacing:0;">(neobavezno)</span></label>
+            <input class="form-input" type="date" id="datum" name="datum" style="cursor:pointer;" />
           </div>
           <div class="form-group">
             <label class="form-label" for="message">Poruka</label>
@@ -1434,7 +1860,6 @@
     </div>
   </section>
 
-  <!--  footer  -->
   <footer role="contentinfo">
     <div class="footer-brand">Foto Anita</div>
     <p class="footer-copy">&copy; <span id="copy-year">2025</span> Foto Anita, Valpovo · Sva prava pridržana</p>
@@ -1484,6 +1909,19 @@
         mobileMenu.classList.remove('open');
         navToggle.classList.remove('open');
         navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Video sekcija — klik zamijeni slicicu YouTube playerom
+    document.querySelectorAll('.vp-frame').forEach(frame => {
+      frame.addEventListener('click', () => {
+        const id = frame.dataset.id;
+        frame.innerHTML =
+          `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0"
+                   title="YouTube video player" frameborder="0"
+                   referrerpolicy="strict-origin-when-cross-origin"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                   allowfullscreen></iframe>`;
       });
     });
 
@@ -1631,6 +2069,27 @@
       return ok;
     }
 
+    // Predodabir usluge iz URL-a (npr. ?usluga=Vjenčanje sa stranica usluga)
+    (function prefillService() {
+      const params = new URLSearchParams(window.location.search);
+      const usluga = params.get('usluga');
+      if (!usluga) return;
+      const select = fields.service.el;
+      const match = Array.from(select.options).find(o => o.value === usluga);
+      if (match) {
+        select.value = usluga;
+        setFieldError(fields.service, false);
+        // Blago naglašavanje forme nakon dolaska sa stranice usluge
+        requestAnimationFrame(() => {
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    })();
+
+    // Ne dopusti odabir datuma u prošlosti
+    const datumEl = document.getElementById('datum');
+    if (datumEl) datumEl.min = new Date().toISOString().split('T')[0];
+
     // Makni error čim korisnik počne tipkati / odabere
     Object.values(fields).forEach(f => {
       f.el.addEventListener('input', () => setFieldError(f, false));
@@ -1656,6 +2115,7 @@
         prezime:  fields.lname.el.value.trim(),
         email:    fields.email.el.value.trim(),
         usluga:   fields.service.el.value,
+        datum:    datumEl ? datumEl.value : '',
         poruka:   document.getElementById('message').value.trim(),
       };
 
@@ -1663,7 +2123,8 @@
       if (!FORMSPREE_ENDPOINT) {
         const subject = encodeURIComponent(`Upit s weba — ${data.usluga}`);
         const body = encodeURIComponent(
-          `Ime: ${data.ime} ${data.prezime}\nE-mail: ${data.email}\nUsluga: ${data.usluga}\n\n${data.poruka}`
+          `Ime: ${data.ime} ${data.prezime}\nE-mail: ${data.email}\nUsluga: ${data.usluga}` +
+          (data.datum ? `\nDatum: ${data.datum}` : '') + `\n\n${data.poruka}`
         );
         window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
         successEl.style.display = 'block';
@@ -1682,8 +2143,9 @@
             prezime: data.prezime,
             email: data.email,        // Formspree koristi ovo za reply-to
             usluga: data.usluga,
+            datum: data.datum,
             poruka: data.poruka,
-            _subject: `Upit s weba — ${data.usluga}`,
+            _subject: `Upit s weba — ${data.usluga}` + (data.datum ? ` (${data.datum})` : ''),
           }),
         });
 
@@ -1703,6 +2165,53 @@
 
     // godina i copyright
     document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    /* FAQ — meko otvaranje/zatvaranje akordeona.
+       <details> nativno skače, pa preuzimamo kontrolu i animiramo visinu. */
+    (function () {
+      const TRAJANJE = 360;
+      const KRIVULJA = 'cubic-bezier(.4, 0, .2, 1)';
+      const bezAnimacije = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const summary = item.querySelector('summary');
+        const body = item.querySelector('.faq-body');
+        if (!summary || !body) return;
+
+        let anim = null;
+        let zatvara = false;
+
+        summary.addEventListener('click', e => {
+          // poštuj postavku smanjenog gibanja — pusti nativno ponašanje
+          if (bezAnimacije.matches) return;
+          e.preventDefault();
+
+          if (anim) { anim.cancel(); anim = null; }
+
+          // ako je usred zatvaranja, tretiraj klik kao ponovno otvaranje
+          const otvoren = item.open && !zatvara;
+          const visina = body.scrollHeight + 'px';
+
+          if (!otvoren) {
+            zatvara = false;
+            item.open = true;
+            anim = body.animate(
+              [{ height: '0px', opacity: 0 }, { height: visina, opacity: 1 }],
+              { duration: TRAJANJE, easing: KRIVULJA }
+            );
+            anim.onfinish = () => { anim = null; };
+          } else {
+            zatvara = true;
+            anim = body.animate(
+              [{ height: visina, opacity: 1 }, { height: '0px', opacity: 0 }],
+              { duration: TRAJANJE, easing: KRIVULJA }
+            );
+            anim.onfinish = () => { item.open = false; zatvara = false; anim = null; };
+            anim.oncancel = () => { zatvara = false; };
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
