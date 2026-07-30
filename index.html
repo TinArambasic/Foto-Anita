@@ -663,7 +663,54 @@
     }
 
 
-    
+    /*  wedding book sekcija — tekst lijevo, hero slika desno  */
+    #weddingbook { background: #0C0A09; padding-bottom: 6rem; }
+    .wb-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4.5rem; align-items: center;
+    }
+    .wb-text .section-eyebrow { text-align: left; }
+    .wb-title {
+      font-family: 'Cormorant Infant', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 300; line-height: 1.15; color: #F5EFE6;
+      margin-bottom: 1.4rem;
+    }
+    .wb-title em { font-style: italic; color: #C9A96E; }
+    .wb-lead { font-size: 1rem; line-height: 1.9; color: #C8BFB2; margin-bottom: 1.8rem; }
+    .wb-list { list-style: none; display: grid; gap: .8rem; margin-bottom: 2.2rem; }
+    .wb-list li {
+      display: flex; align-items: flex-start; gap: .8rem;
+      font-size: .95rem; line-height: 1.5; color: #C8BFB2;
+    }
+    .wb-list svg { flex-shrink: 0; margin-top: .25rem; color: #C9A96E; }
+    .wb-cta {
+      display: inline-flex; align-items: center; gap: .7rem;
+      font-size: .74rem; letter-spacing: .22em; text-transform: uppercase;
+      color: #0C0A09; background: #C9A96E;
+      padding: 1rem 2.2rem; text-decoration: none;
+      transition: background .25s, gap .25s;
+    }
+    .wb-cta:hover { background: #DEC99A; gap: 1rem; }
+
+    /* Izrezani book bez pozadine — bez okvira, samo meka sjena */
+    .wb-media { display: block; }
+    .wb-media img {
+      width: 100%; height: auto; display: block;
+      filter: drop-shadow(0 30px 45px rgba(0,0,0,.55));
+      transition: transform .7s ease, filter .5s;
+    }
+    .wb-media:hover img {
+      transform: translateY(-6px) scale(1.02);
+      filter: drop-shadow(0 40px 55px rgba(0,0,0,.65));
+    }
+
+    @media (max-width: 900px) {
+      .wb-inner { grid-template-columns: 1fr; gap: 2.8rem; }
+      .wb-media { order: -1; max-width: 520px; margin: 0 auto; }
+    }
+
     /*  video sekcija na naslovnici  */
     #videos { background: #0C0A09; padding-bottom: 6rem; }
     .vp-grid {
@@ -1116,6 +1163,7 @@
           <a href="galerije/lucija-antonijo.html">Lucija &amp; Antonijo</a>
           <a href="galerije/marina-josip.html">Marina &amp; Josip</a>
           <a href="galerije/stela-josip.html">Stela &amp; Josip</a>
+          <a href="galerije/wedding-book.html">Wedding book</a>
           <a href="#gallery" class="dropdown-all">Sve galerije</a>
         </div>
       </div>
@@ -1162,6 +1210,7 @@
         <a href="galerije/lucija-antonijo.html">Lucija &amp; Antonijo</a>
         <a href="galerije/marina-josip.html">Marina &amp; Josip</a>
         <a href="galerije/stela-josip.html">Stela &amp; Josip</a>
+        <a href="galerije/wedding-book.html">Wedding book</a>
         <a href="#gallery" class="dropdown-all">Sve galerije</a>
       </div>
     </div>
@@ -1499,6 +1548,39 @@
     </div>
   </section>
 
+  <!--  WEDDING BOOK  -->
+  <section id="weddingbook" aria-label="Wedding book">
+    <div class="wb-inner">
+
+      <div class="wb-text reveal">
+        <p class="section-eyebrow">Wedding book</p>
+        <h2 class="wb-title">Vaša priča u <em>tiskanom izdanju</em></h2>
+        <p class="wb-lead">
+          Fotografije žive najljepše kad ih se može uzeti u ruke. Wedding book prikazuje
+          vaš dan od priprema do posljednjeg plesa u knjigu koju ćete
+          otvarati godinama, zajedno s vašim najdražima.
+        </p>
+        <ul class="wb-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dimenzije 30&times;30 cm i 30&times;40 cm</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Korice po vlastitom izboru</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mali wedding bookovi za roditelje i kumove</li>
+        </ul>
+        <a href="galerije/wedding-book.html" class="wb-cta">
+          Saznajte više
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <a href="galerije/wedding-book.html" class="wb-media reveal reveal-delay-1"
+         aria-label="Pogledaj wedding bookove">
+        <img src="galerije/slike/wedding-book/04-cutout.webp"
+             alt="Wedding book — tiskana knjiga vjenčanih fotografija"
+             width="1200" height="928" loading="lazy" />
+      </a>
+
+    </div>
+  </section>
+
   <!--  VIDEO  -->
   <section id="videos" aria-label="Video radovi">
     <div style="max-width:1100px; margin:0 auto 4rem; text-align:center;" class="reveal">
@@ -1816,6 +1898,7 @@
               <option value="" disabled selected style="color:#4A4440; background:#0C0A09;">Odaberite uslugu…</option>
               <option value="Portret" style="background:#0C0A09;">Portret</option>
               <option value="Vjenčanje" style="background:#0C0A09;">Vjenčanje</option>
+              <option value="Wedding book" style="background:#0C0A09;">Wedding book</option>
               <option value="Događaj" style="background:#0C0A09;">Događaj</option>
               <option value="Mirror Photo Booth" style="background:#0C0A09;">Mirror Photo Booth</option>
               <option value="Produkt fotografija" style="background:#0C0A09;">Produkt fotografija</option>

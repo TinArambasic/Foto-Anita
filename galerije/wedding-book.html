@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon (svijetli / tamni tab + Apple) -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/transparent-black-192.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/dark-192.png" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/dark-192.png" />
+  <link rel="apple-touch-icon" href="/dark-192.png" />
+  <title>Wedding book — vjenčani foto album | Foto Anita Valpovo</title>
+  <meta name="description" content="Wedding book — tiskani vjenčani album u dimenzijama 30x30 i 30x40 cm, kronološki poredane fotografije, korice po vlastitom izboru i mali bookovi za roditelje i kumove." />
+  <link rel="canonical" href="https://foto-anita.com/galerije/wedding-book.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Foto Anita" />
+  <meta property="og:url" content="https://foto-anita.com/galerije/wedding-book.html" />
+  <meta property="og:title" content="Wedding book — vjenčani foto album | Foto Anita" />
+  <meta property="og:description" content="Tiskani vjenčani album u dimenzijama 30x30 i 30x40 cm, s kronološki poredanim fotografijama i koricama po vlastitom izboru." />
+  <meta property="og:image" content="https://foto-anita.com/galerije/slike/wedding-book/04.jpg" />
+  <meta property="og:locale" content="hr_HR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wedding book — vjenčani foto album | Foto Anita" />
+  <meta name="twitter:description" content="Tiskani vjenčani album u dimenzijama 30x30 i 30x40 cm, s kronološki poredanim fotografijama i koricama po vlastitom izboru." />
+  <meta name="twitter:image" content="https://foto-anita.com/galerije/slike/wedding-book/04.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;1,300&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0C0A09; color: #F5EFE6; font-family: 'Jost', sans-serif; font-weight: 300; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 3px; }
+    ::selection { background: rgba(201,169,110,.35); }
+    img { display: block; max-width: 100%; }
+
+    /* Back bar */
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      padding: 1.1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(12,10,9,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,169,110,.15);
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+      color: #C9A96E; text-decoration: none; transition: color .2s;
+    }
+    .back-link:hover { color: #DEC99A; }
+    .brand { font-family: 'Great Vibes', cursive; font-size: 1.7rem; color: #C9A96E; text-decoration: none; }
+    .topbar-cta {
+      font-family: 'Jost', sans-serif; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      color: #0C0A09; background: #C9A96E; padding: .55rem 1.2rem; text-decoration: none; transition: background .25s;
+    }
+    .topbar-cta:hover { background: #DEC99A; }
+
+    /* Hero — tekst lijevo, slika desno */
+    .wb-hero { background: linear-gradient(to bottom, #171412, #0C0A09); padding: 5rem 2rem 4rem; }
+    .wb-hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center;
+    }
+    .u-eyebrow { font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: #C9A96E; margin-bottom: 1rem; }
+    .u-title {
+      font-family: 'Cormorant Infant', serif; font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 300; line-height: 1.1; color: #F5EFE6; margin-bottom: .8rem;
+    }
+    .u-title em { font-style: italic; color: #C9A96E; }
+    .u-sub { font-family: 'Cormorant Infant', serif; font-style: italic; font-size: 1.15rem; color: #A89888; }
+    /* Izrezani book bez pozadine — bez okvira, samo meka sjena */
+    .wb-hero-img img {
+      width: 100%; height: auto;
+      filter: drop-shadow(0 30px 45px rgba(0,0,0,.55));
+    }
+
+    /* Opis + specifikacije */
+    .u-wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .u-lead { max-width: 780px; margin: 4rem auto 0; text-align: center; font-size: 1.05rem; line-height: 1.9; color: #D8CFC2; }
+
+    .wb-specs {
+      max-width: 1000px; margin: 3.5rem auto 0;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    }
+    .wb-spec {
+      border: 1px solid rgba(201,169,110,.18);
+      background: #12100E;
+      padding: 2rem 1.8rem;
+      transition: border-color .3s, transform .3s;
+    }
+    .wb-spec:hover { border-color: rgba(201,169,110,.4); transform: translateY(-3px); }
+    .wb-spec-icon { color: #C9A96E; margin-bottom: 1rem; }
+    .wb-spec h3 {
+      font-family: 'Cormorant Infant', serif; font-weight: 400; font-style: italic;
+      font-size: 1.5rem; color: #F5EFE6; margin-bottom: .6rem;
+    }
+    .wb-spec p { font-size: .95rem; line-height: 1.7; color: #A89888; }
+
+    /* Grid fotografija */
+    .grid-head { max-width: 1100px; margin: 5.5rem auto 2.5rem; padding: 0 2rem; text-align: center; }
+    .grid-head h2 {
+      font-family: 'Cormorant Infant', serif; font-weight: 300;
+      font-size: clamp(1.9rem, 4vw, 2.8rem); color: #F5EFE6;
+    }
+    .grid-head h2 em { font-style: italic; color: #C9A96E; }
+
+    .photo-grid { max-width: 1200px; margin: 0 auto 5rem; padding: 0 2rem; columns: 3; column-gap: 10px; }
+    .photo-item { break-inside: avoid; margin-bottom: 10px; position: relative; overflow: hidden; cursor: pointer; }
+    .photo-item img {
+      width: 100%; filter: sepia(12%) saturate(.88) contrast(1.06);
+      transition: transform .5s ease, filter .4s;
+    }
+    .photo-item:hover img { transform: scale(1.04); filter: sepia(4%) saturate(1) contrast(1.04); }
+    .photo-item-overlay {
+      position: absolute; inset: 0; background: rgba(12,10,9,0);
+      display: flex; align-items: center; justify-content: center; transition: background .3s;
+    }
+    .photo-item:hover .photo-item-overlay { background: rgba(12,10,9,.28); }
+    .photo-item-overlay svg { opacity: 0; transform: scale(.7); transition: opacity .3s, transform .3s; color: #F5EFE6; }
+    .photo-item:hover .photo-item-overlay svg { opacity: 1; transform: scale(1); }
+
+    /* Lightbox */
+    #lb { position: fixed; inset: 0; z-index: 100; background: rgba(8,6,5,.97); display: none; align-items: center; justify-content: center; padding: 2rem; }
+    #lb.open { display: flex; }
+    #lb img { max-width: 90vw; max-height: 90vh; object-fit: contain; box-shadow: 0 40px 100px rgba(0,0,0,.7); }
+    .lb-btn { position: absolute; width: 44px; height: 44px; border: 1px solid rgba(201,169,110,.35); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #C9A96E; background: transparent; transition: background .25s, border-color .25s; }
+    .lb-btn:hover { background: #C9A96E; color: #0C0A09; border-color: #C9A96E; }
+    #lb-close { top: 1.5rem; right: 1.5rem; }
+    #lb-prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+    #lb-next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+
+    /* CTA */
+    .u-cta { padding: 2rem 2rem 6rem; text-align: center; background: linear-gradient(to bottom, #0C0A09, #171412); }
+    .u-cta h2 { font-family: 'Cormorant Infant', serif; font-weight: 300; font-size: clamp(2rem, 4.5vw, 3rem); color: #F5EFE6; margin-bottom: .8rem; }
+    .u-cta h2 em { font-style: italic; color: #C9A96E; }
+    .u-cta p { font-family: 'Cormorant Infant', serif; font-style: italic; font-size: 1.1rem; color: #A89888; margin-bottom: 2.2rem; }
+    .u-btn {
+      display: inline-flex; align-items: center; gap: .7rem;
+      font-family: 'Jost', sans-serif; font-size: .8rem; letter-spacing: .22em; text-transform: uppercase;
+      color: #0C0A09; background: #C9A96E; padding: 1.1rem 2.6rem; text-decoration: none; transition: background .25s, gap .25s;
+    }
+    .u-btn:hover { background: #DEC99A; gap: 1rem; }
+    .u-direct { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; margin-top: 2.2rem; }
+    .u-direct a {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+      color: #C9A96E; text-decoration: none;
+      border: 1px solid rgba(201,169,110,.35); padding: .85rem 1.6rem;
+      transition: background .25s, border-color .25s, color .25s;
+    }
+    .u-direct a:hover { background: rgba(201,169,110,.1); border-color: #C9A96E; color: #DEC99A; }
+    .u-direct svg { flex-shrink: 0; }
+    .u-direct-note { margin-top: 1rem; font-family: 'Cormorant Infant', serif; font-style: italic; font-size: .95rem; color: #7C736A; }
+
+    @media (max-width: 900px) {
+      .wb-hero-inner { grid-template-columns: 1fr; gap: 2.8rem; text-align: center; }
+      .wb-hero-img { order: -1; max-width: 520px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) { .photo-grid { columns: 2; } .wb-specs { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .u-direct a { flex: 1 1 100%; justify-content: center; } }
+    @media (max-width: 480px) { .photo-grid { columns: 1; } .topbar { padding: 1rem 1.2rem; } .wb-hero { padding: 3.5rem 1.2rem 3rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="../index.html#weddingbook" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 12H5M12 19l-7-7 7-7"/></svg>
+      Natrag
+    </a>
+    <a href="../index.html" class="brand">Foto Anita</a>
+    <a href="../index.html?usluga=Wedding%20book#contact" class="topbar-cta">Rezerviraj</a>
+  </header>
+
+  <section class="wb-hero">
+    <div class="wb-hero-inner">
+      <div>
+        <p class="u-eyebrow">Wedding book</p>
+        <h1 class="u-title">Vaša priča u <em>tiskanom izdanju</em></h1>
+        <p class="u-sub">Knjiga koju ćete otvarati godinama</p>
+      </div>
+      <div class="wb-hero-img">
+        <img src="slike/wedding-book/04-cutout.webp" alt="Wedding book — tiskani vjenčani album"
+             width="1200" height="928" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <div class="u-wrap">
+    <p class="u-lead">
+      Wedding book je ručno rađena knjiga vaših vjenčanih fotografija. Slike su poredane
+      kronološki, tj. od jutarnjih priprema, preko obreda i svečanog ručka, do posljednjeg plesa
+      pa se vaš dan iznova prepričava sam od sebe, stranicu po stranicu. Tiskan je na kvalitetnom
+      papiru, s koricama koje birate sami, tako da album izgleda i djeluje onako kako ste zamislili.
+    </p>
+  </div>
+
+  <div class="wb-specs">
+    <div class="wb-spec">
+      <div class="wb-spec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg></div>
+      <h3>Dimenzije 30&times;30 i 30&times;40 cm</h3>
+      <p>Kvadratni format 30&times;30 cm ili veći, izduženi 30&times;40 cm — birate onaj koji bolje odgovara vašim fotografijama i prostoru u kojem će album stajati.</p>
+    </div>
+
+    <div class="wb-spec">
+      <div class="wb-spec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Kronološki poredane fotografije</h3>
+      <p>Fotografije slažemo redoslijedom kojim se dan odvijao, od priprema do kraja slavlja, tako da album prirodno prepričava cijelu priču vašeg vjenčanja.</p>
+    </div>
+
+    <div class="wb-spec">
+      <div class="wb-spec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 3v18"/></svg></div>
+      <h3>Korice po vlastitom izboru</h3>
+      <p>Materijal, boju i završnu obradu korica birate sami — od klasičnih do modernijih izvedbi, uz mogućnost fotografije ili natpisa s imenima i datumom.</p>
+    </div>
+
+    <div class="wb-spec">
+      <div class="wb-spec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="12" height="14" rx="1"/><path d="M17 7h4v13H9"/></svg></div>
+      <h3>Mali bookovi za roditelje i kumove</h3>
+      <p>Uz glavni album izrađujemo i manje wedding bookove s istim izborom fotografija — savršen poklon za roditelje i kumove.</p>
+    </div>
+  </div>
+
+  <div class="grid-head">
+    <h2>Naši <em>wedding bookovi</em></h2>
+  </div>
+
+  <div class="photo-grid" id="photo-grid"></div>
+
+  <!-- Lightbox -->
+  <div id="lb" role="dialog" aria-modal="true" aria-label="Pregled fotografije">
+    <button id="lb-close" class="lb-btn" aria-label="Zatvori">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <button id="lb-prev" class="lb-btn" aria-label="Prethodna">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <img id="lb-img" src="" alt="" />
+    <button id="lb-next" class="lb-btn" aria-label="Sljedeća">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <section class="u-cta">
+    <h2>Želite <em>svoj wedding book</em>?</h2>
+    <p>Javite se i dogovorimo format, korice i izbor fotografija.</p>
+    <div class="u-direct">
+      <a href="tel:+385916444492">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92Z"/></svg>
+        091 644 4492
+      </a>
+      <a href="https://wa.me/385916444492?text=Pozdrav%2C%20zanima%20me%20wedding%20book" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.71-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <p class="u-direct-note">Najbrži odgovor — javljamo se isti dan.</p>
+
+    <a href="../index.html?usluga=Wedding%20book#contact" class="u-btn">
+      Rezerviraj
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </section>
+
+  <script>
+    const photos = [
+      { src: 'slike/wedding-book/00.jpg', alt: 'Wedding book — fotografija 1' },
+      { src: 'slike/wedding-book/01.jpg', alt: 'Wedding book — fotografija 2' },
+      { src: 'slike/wedding-book/02.jpg', alt: 'Wedding book — fotografija 3' },
+      { src: 'slike/wedding-book/03.jpg', alt: 'Wedding book — fotografija 4' },
+      { src: 'slike/wedding-book/05.jpg', alt: 'Wedding book — fotografija 5' },
+      { src: 'slike/wedding-book/06.jpg', alt: 'Wedding book — fotografija 6' },
+      { src: 'slike/wedding-book/07.jpg', alt: 'Wedding book — fotografija 7' },
+      { src: 'slike/wedding-book/08.jpg', alt: 'Wedding book — fotografija 8' },
+      { src: 'slike/wedding-book/09.jpg', alt: 'Wedding book — fotografija 9' },
+      { src: 'slike/wedding-book/10.jpg', alt: 'Wedding book — fotografija 10' },
+      { src: 'slike/wedding-book/11.jpg', alt: 'Wedding book — fotografija 11' },
+      { src: 'slike/wedding-book/12.jpg', alt: 'Wedding book — fotografija 12' },
+      { src: 'slike/wedding-book/13.jpg', alt: 'Wedding book — fotografija 13' },
+      { src: 'slike/wedding-book/14.jpg', alt: 'Wedding book — fotografija 14' },
+      { src: 'slike/wedding-book/15.jpg', alt: 'Wedding book — fotografija 15' },
+      { src: 'slike/wedding-book/16.jpg', alt: 'Wedding book — fotografija 16' },
+    ];
+
+    const grid = document.getElementById('photo-grid');
+    const lb   = document.getElementById('lb');
+    const lbImg = document.getElementById('lb-img');
+    let lbCur = 0;
+
+    photos.forEach((p, i) => {
+      const item = document.createElement('div');
+      item.className = 'photo-item';
+      item.innerHTML = `
+        <img src="${p.src}" alt="${p.alt}" loading="lazy" />
+        <div class="photo-item-overlay">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>`;
+      item.addEventListener('click', () => { lbCur = i; openLb(); });
+      grid.appendChild(item);
+    });
+
+    function openLb() { lbImg.src = photos[lbCur].src; lbImg.alt = photos[lbCur].alt; lb.classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeLb() { lb.classList.remove('open'); document.body.style.overflow=''; }
+
+    document.getElementById('lb-close').addEventListener('click', closeLb);
+    document.getElementById('lb-prev').addEventListener('click', () => { lbCur = (lbCur - 1 + photos.length) % photos.length; lbImg.src = photos[lbCur].src; lbImg.alt = photos[lbCur].alt; });
+    document.getElementById('lb-next').addEventListener('click', () => { lbCur = (lbCur + 1) % photos.length; lbImg.src = photos[lbCur].src; lbImg.alt = photos[lbCur].alt; });
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') document.getElementById('lb-prev').click();
+      if (e.key === 'ArrowRight') document.getElementById('lb-next').click();
+    });
+  </script>
+</body>
+</html>
