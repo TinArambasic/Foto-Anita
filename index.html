@@ -712,7 +712,7 @@
     }
 
     /*  video sekcija na naslovnici  */
-    #videos { background: #0C0A09; padding-bottom: 6rem; }
+    #videos { background: #171412; padding-bottom: 6rem; }
     .vp-grid {
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
@@ -774,6 +774,66 @@
     /* 3 videa -> ide se ravno na 1 stupac, da nema usamljene kartice u redu */
     @media (max-width: 860px) {
       .vp-grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+
+    /*  cjenik sekcija  */
+    #pricing { padding: 6rem 2rem; text-align: center; }
+    .pricing-text {
+      max-width: 560px; margin: 1.4rem auto 0;
+      font-size: .98rem; line-height: 1.75; color: #D8CFC4;
+    }
+    .pricing-cta {
+      margin-top: 2.2rem;
+    }
+    .pricing-frame {
+      position: relative;
+      width: 100%; max-width: 480px; margin: 2.6rem auto 0;
+      aspect-ratio: 3/4;
+      background: #221E1A;
+      border: 1px solid rgba(201,169,110,.18);
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,.55);
+      overflow: hidden;
+    }
+    .pricing-slide {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; transition: opacity .4s ease;
+      pointer-events: none;
+    }
+    .pricing-slide.active { opacity: 1; }
+    .pricing-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 38px; height: 38px;
+      background: rgba(12,10,9,.5);
+      border-color: rgba(245,239,230,.35);
+      color: #F5EFE6;
+      opacity: 0; transition: opacity .25s, background .25s, border-color .25s, color .25s, transform .18s;
+    }
+    .pricing-nav:hover { background: #C9A96E; color: #0C0A09; border-color: #C9A96E; }
+    .pricing-frame:hover .pricing-nav { opacity: 1; }
+    .pricing-prev { left: .7rem; }
+    .pricing-next { right: .7rem; }
+    .pricing-frame-badge {
+      position: absolute; right: .8rem; bottom: .8rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .64rem; letter-spacing: .12em;
+      color: #F5EFE6;
+      background: rgba(12,10,9,.55);
+      border: 1px solid rgba(245,239,230,.3);
+      padding: .35rem .7rem;
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    }
+    .pricing-download {
+      display: inline-flex; align-items: center; gap: .45rem;
+      margin-top: 1.6rem;
+      font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+      color: #A89888; text-decoration: none;
+      transition: color .2s;
+    }
+    .pricing-download:hover { color: #C9A96E; }
+    @media (max-width: 640px) {
+      .pricing-frame { max-width: 340px; }
+      .pricing-nav { opacity: 1; }
     }
 
     #testimonials { background: #171412; padding: 5rem 2rem; }
@@ -1169,6 +1229,7 @@
       </div>
 
       <a href="#videos"    class="nav-link" role="listitem">Video</a>
+      <a href="#pricing"   class="nav-link" role="listitem">Cjenik</a>
       <a href="#testimonials" class="nav-link" role="listitem">Recenzije</a>
       <a href="#contact"      class="nav-link" role="listitem">Kontakt</a>
     </div>
@@ -1216,6 +1277,7 @@
     </div>
 
     <a href="#videos">Video</a>
+    <a href="#pricing">Cjenik</a>
     <a href="#testimonials">Recenzije</a>
     <a href="#contact">Kontakt</a>
     <a href="#contact" style="color:#C9A96E; font-family:'Jost',sans-serif; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;">Rezerviraj termin →</a>
@@ -1639,6 +1701,45 @@
     </div>
   </section>
 
+  <section id="pricing" aria-label="Cjenik usluga">
+    <div class="reveal">
+      <p class="section-eyebrow">Cjenik</p>
+      <h2 class="section-title">Pogledajte naš <em>cjenik</em></h2>
+      <p class="pricing-text">
+        Pripremili smo pregledan cjenik svih naših foto i video usluga. Pregledajte ili preuzmite u nastavku i odaberite paket koji najbolje odgovara vašoj prigodi.
+      </p>
+
+      <div class="pricing-frame" id="pricing-frame">
+        <img src="cjenik-preview/page-01.jpg" class="pricing-slide active" data-index="0" alt="Cjenik — stranica 1" loading="eager" draggable="false" />
+        <img src="cjenik-preview/page-02.jpg" class="pricing-slide" data-index="1" alt="Cjenik — stranica 2" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-03.jpg" class="pricing-slide" data-index="2" alt="Cjenik — stranica 3" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-04.jpg" class="pricing-slide" data-index="3" alt="Cjenik — stranica 4" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-05.jpg" class="pricing-slide" data-index="4" alt="Cjenik — stranica 5" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-06.jpg" class="pricing-slide" data-index="5" alt="Cjenik — stranica 6" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-07.jpg" class="pricing-slide" data-index="6" alt="Cjenik — stranica 7" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-08.jpg" class="pricing-slide" data-index="7" alt="Cjenik — stranica 8" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-09.jpg" class="pricing-slide" data-index="8" alt="Cjenik — stranica 9" loading="lazy" draggable="false" />
+        <img src="cjenik-preview/page-10.jpg" class="pricing-slide" data-index="9" alt="Cjenik — stranica 10" loading="lazy" draggable="false" />
+
+        <button type="button" class="gal-btn pricing-nav pricing-prev" id="pricing-prev" aria-label="Prethodna stranica">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button type="button" class="gal-btn pricing-nav pricing-next" id="pricing-next" aria-label="Sljedeća stranica">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+
+        <span class="pricing-frame-badge"><span id="pricing-current">1</span> / 10</span>
+      </div>
+
+      <div class="gal-dots" id="pricing-dots" style="justify-content:center; margin-top:1rem;"></div>
+
+      <a href="cjenik.pdf" download class="pricing-download">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        Preuzmi PDF
+      </a>
+    </div>
+  </section>
+
   <section id="testimonials" aria-label="Recenzije klijenata">
     <div style="max-width:900px; margin:0 auto 3.5rem; text-align:center;" class="reveal">
       <p class="section-eyebrow">Recenzije</p>
@@ -1687,24 +1788,7 @@
         </summary>
         <div class="faq-body">
         <div class="faq-answer">
-          Za vjenčanja preporučujemo <strong>6 do 12 mjeseci unaprijed</strong> — popularni ljetni datumi
-          popune se najranije. Za portrete, događaje i Mirror Photo Booth obično je dovoljno
-          <strong>2 do 4 tjedna</strong>. Ako je vaš termin bliže, svejedno se javite — ponekad imamo slobodan termin.
-        </div>
-        </div>
-      </details>
-
-      <details class="faq-item reveal">
-        <summary>
-          Koliko koštaju vaše usluge?
-          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-        </summary>
-        <div class="faq-body">
-        <div class="faq-answer">
-          Fotografiranje vjenčanja kreće se <strong>od 1.690 do 2.800 €</strong>, ovisno o paketu
-          i broju fotografa, uz putni trošak ovisno o lokaciji. Mirror Photo Booth je
-          <strong>400 €</strong>. Za portrete i događaje cijena ovisi o trajanju i željama —
-          javite nam se i poslat ćemo ponudu prilagođenu vama.
+         Ovisi o datumu, poneki periodi u godini imaju veću potražnju od drugih. Stoga je potrebno rezervirati vaš datum barem <strong>12 mjeseci ranije</strong> 
         </div>
         </div>
       </details>
@@ -1730,7 +1814,7 @@
         </summary>
         <div class="faq-body">
         <div class="faq-answer">
-          Naš tim broji <strong>četiri fotografa</strong>, a koliko nas dolazi ovisi o odabranom paketu.
+          Naš tim broji <strong>četiri člana</strong>, a koliko nas dolazi ovisi o odabranom paketu.
           Više fotografa znači da su istovremeno pokrivene pripreme mladenke i mladoženje te
           više kutova tijekom ceremonije i proslave.
         </div>
@@ -1753,14 +1837,12 @@
 
       <details class="faq-item reveal">
         <summary>
-          Kada dobivam gotove fotografije?
+          Kada dobivamo gotov materijal?
           <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
         <div class="faq-body">
         <div class="faq-answer">
-          Fotografije s vjenčanja obrađujemo <strong>do šest tjedana</strong> — obrada cjelodnevnog
-          fotografiranja zahtijeva vrijeme kako bi svaki kadar bio kako treba. Za ostale usluge
-          rok je <strong>oko dva tjedna</strong>.
+          Sav gotov materijal, foto i video, isporučujemo unutar <strong>2 do 4 mjeseca</strong>. U to ulaze vaše obrađene fotografije, wedding book i obrađeni video materijal.
         </div>
         </div>
       </details>
@@ -1772,9 +1854,7 @@
         </summary>
         <div class="faq-body">
         <div class="faq-answer">
-          Akontaciju tražimo <strong>samo za vjenčanja</strong> — njome se datum rezervira i više ga
-          ne nudimo drugima. Za portrete, događaje i Mirror Photo Booth plaćanje ide nakon
-          obavljene usluge.
+          Akontaciju uzimamo pri sklapanju ugovora -- njome se Vaš datum <strong>rezervira</strong>
         </div>
         </div>
       </details>
@@ -1994,6 +2074,48 @@
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    // Cjenik — preview slider (bez PDF toolbara, cjenik je pretvoren u slike)
+    const pricingFrame = document.getElementById('pricing-frame');
+    if (pricingFrame) {
+      const slides   = Array.from(pricingFrame.querySelectorAll('.pricing-slide'));
+      const prevBtn  = document.getElementById('pricing-prev');
+      const nextBtn  = document.getElementById('pricing-next');
+      const counter  = document.getElementById('pricing-current');
+      const dotsWrap = document.getElementById('pricing-dots');
+      const total    = slides.length;
+      let current = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'gal-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Stranica ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function goTo(index) {
+        current = (index + total) % total;
+        slides.forEach((s, i) => s.classList.toggle('active', i === current));
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        if (counter) counter.textContent = current + 1;
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      // swipe na dodir (mobitel)
+      let touchX = null;
+      pricingFrame.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+      pricingFrame.addEventListener('touchend', (e) => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+        touchX = null;
+      }, { passive: true });
+    }
 
     // Video sekcija — klik zamijeni slicicu YouTube playerom
     document.querySelectorAll('.vp-frame').forEach(frame => {
