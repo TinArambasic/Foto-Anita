@@ -1,0 +1,12 @@
+﻿rb;naziv_usluge;kategorija;jedinica;cijena_eur;bazna_cijena_eur;datum_bazne_cijene;napomena
+1;Osnovni paket;Fotografiranje i snimanje vjenčanja;paket;1850,00;1850,00;10.09.2026;
+2;Classic paket;Fotografiranje i snimanje vjenčanja;paket;2150,00;2150,00;10.09.2026;
+3;Extra paket;Fotografiranje i snimanje vjenčanja;paket;2350,00;2350,00;10.09.2026;
+4;Classic Plus paket;Fotografiranje i snimanje vjenčanja;paket;2400,00;2400,00;10.09.2026;
+5;Extra Plus paket;Fotografiranje i snimanje vjenčanja;paket;2600,00;2600,00;10.09.2026;
+6;Premium paket;Fotografiranje i snimanje vjenčanja;paket;3000,00;3000,00;10.09.2026;
+7;Mirror Photo Booth (4 sata);Photo booth;usluga;500,00;500,00;10.09.2026;Uz odabrani paket foto i video usluga
+8;Putni trošak - Zagreb;Putni trošak;odredište;250,00;250,00;10.09.2026;
+9;Putni trošak - Varaždin;Putni trošak;odredište;250,00;250,00;10.09.2026;
+10;Putni trošak - Zadar;Putni trošak;odredište;450,00;450,00;10.09.2026;
+11;Putni trošak - Pula;Putni trošak;odredište;450,00;450,00;10.09.2026;

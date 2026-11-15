@@ -831,6 +831,19 @@
       transition: color .2s;
     }
     .pricing-download:hover { color: #C9A96E; }
+    .pricing-download + .pricing-download { margin-left: 1.6rem; }
+    .price-table {
+      width: 100%; max-width: 480px; margin: 2.4rem auto 0;
+      border-collapse: collapse;
+      font-size: .82rem; color: #D8CFC4; text-align: left;
+    }
+    .price-table caption {
+      margin-bottom: .8rem;
+      font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: #A89888;
+    }
+    .price-table th, .price-table td { padding: .55rem .4rem; border-bottom: 1px solid #2E2A25; }
+    .price-table th { font-weight: 400; color: #A89888; font-size: .72rem; }
+    .price-table td + td, .price-table th + th { text-align: right; white-space: nowrap; }
     @media (max-width: 640px) {
       .pricing-frame { max-width: 340px; }
       .pricing-nav { opacity: 1; }
@@ -1155,7 +1168,7 @@
         "name": "Koliko koštaju vaše usluge?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Fotografiranje vjenčanja kreće se od 1.690 do 2.800 €, ovisno o paketu i broju fotografa, uz putni trošak ovisno o lokaciji. Mirror Photo Booth je 400 €. Za portrete i događaje cijena ovisi o trajanju i željama."
+          "text": "Fotografiranje vjenčanja kreće se od 1.850 do 3.000 € (cijena na 10. 9. 2026.: 1.850 do 3.000 €), ovisno o paketu i broju fotografa, uz putni trošak ovisno o lokaciji. Mirror Photo Booth je 500 € (cijena na 10. 9. 2026.: 500 €). Za portrete i događaje cijena ovisi o trajanju i željama."
         }
       },
       {
@@ -1777,6 +1790,32 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
         Preuzmi PDF
       </a>
+      <a href="cjenik.csv" download class="pricing-download">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        Preuzmi cjenik (CSV)
+      </a>
+      <a href="cjenik.xml" download class="pricing-download">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        Preuzmi cjenik (XML)
+      </a>
+
+      <table class="price-table">
+        <caption>Cijene s baznom cijenom</caption>
+        <thead>
+          <tr><th scope="col">Usluga</th><th scope="col">Cijena</th><th scope="col">Cijena na 10. 9. 2026.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Osnovni paket</td><td>1850 €</td><td>1850 €</td></tr>
+          <tr><td>Classic paket</td><td>2150 €</td><td>2150 €</td></tr>
+          <tr><td>Extra paket</td><td>2350 €</td><td>2350 €</td></tr>
+          <tr><td>Classic Plus paket</td><td>2400 €</td><td>2400 €</td></tr>
+          <tr><td>Extra Plus paket</td><td>2600 €</td><td>2600 €</td></tr>
+          <tr><td>Premium paket</td><td>3000 €</td><td>3000 €</td></tr>
+          <tr><td>Mirror Photo Booth (uz odabrani paket)</td><td>500 €</td><td>500 €</td></tr>
+          <tr><td>Putni trošak – Zagreb / Varaždin</td><td>250 €</td><td>250 €</td></tr>
+          <tr><td>Putni trošak – Zadar / Pula</td><td>450 €</td><td>450 €</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
